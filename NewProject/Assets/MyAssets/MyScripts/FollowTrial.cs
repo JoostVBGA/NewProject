@@ -4,38 +4,41 @@ using UnityEngine;
 
 public class FollowTrial : MonoBehaviour
 {
-    public float speed;
-    public float MaxiNum;
-    int pointIndex;
-    Transform movePoint;
-    public Transform[] points;
+    // stores a reference to the waypoint system this object wil use
+    [SerializeField] private WayPoints waypoints;
+
+    // how fast object moves
+    [SerializeField] private float moveSpeed = 5f;
+
+    [SerializeField] private float distanceThreshold = 0.1f;
+
+    // current target that the object moves toward
+    private Transform currentWayPoint;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        pointIndex = 0;
-        movePoint = points[pointIndex];
+        // set initial position to the first waypoint
+        currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
+        transform.position = currentWayPoint.position;
+
+        // set next waypoint target
+        currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, movePoint.position, speed * Time.deltaTime);
-        if (Vector2.Distance(transform.position, movePoint.position) <= 0)
+        transform.LookAt(currentWayPoint);
 
+        transform.position = Vector3.MoveTowards(transform.position, currentWayPoint.position, moveSpeed * Time.deltaTime);
+        if (Vector3.Distance(transform.position, currentWayPoint.position) < distanceThreshold)
         {
-
-            if (pointIndex > MaxiNum)
-            {
-                pointIndex = 0;
-            }
-
-            pointIndex++;
-            movePoint = points[pointIndex];
+            currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
         }
-           
-        Vector2 pos = movePoint.position = transform.position;
-        float angle = Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
     }
 }

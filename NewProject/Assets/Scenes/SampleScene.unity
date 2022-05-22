@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: {fileID: 681411073}
-  moveSpeed: 1
+  moveSpeed: 3
   distanceThreshold: 0.1
   wayPointParent: {fileID: 681411072}
   player: {fileID: 642438764}

@@ -36,18 +36,25 @@ public class FollowTrial : MonoBehaviour
             }
             var firstObject = Instantiate(wayPoint, player.position, Quaternion.identity, wayPointParent);
             firstObject.name = "wayPoint";
-            currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
+
+            Invoke("Delay", 1);
+            
         }
+
+
 
         else 
         {
             Debug.Log("Click");
             var firstObject = Instantiate(wayPoint, player.position, Quaternion.identity, wayPointParent);
             firstObject.name = "wayPoint";
-            currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
+            Invoke("Delay", 1);
         }
     }
-
+    void Delay()
+    {
+        currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
+    }
 
     private void OnMouseDrag()
     {
@@ -63,11 +70,22 @@ public class FollowTrial : MonoBehaviour
         }
     }
 
-
-
-        // Update is called once per frame
-        void Update() 
+    private void OnMouseUp()
+    {
+        if (wayPointParent.childCount < 2)
         {
+            foreach (Transform child in wayPointParent)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update() 
+        {
+        
+
         transform.LookAt(currentWayPoint);
 
         transform.position = Vector3.MoveTowards(transform.position, currentWayPoint.position, moveSpeed * Time.deltaTime);

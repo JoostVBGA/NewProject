@@ -22,9 +22,7 @@ public class WayPoints : MonoBehaviour
         for (int i = 0; i <transform.childCount - 1; i++) 
         {
             Gizmos.DrawLine(transform.GetChild(i).position, transform.GetChild(i + 1).position);
-        }
-
-        
+        } 
     }
 
 
@@ -41,9 +39,9 @@ public class WayPoints : MonoBehaviour
             return transform.GetChild(currentWaypoint.GetSiblingIndex() + 1);
         }
 
-        if (currentWaypoint.GetSiblingIndex() < transform.childCount + 1)
-        
+        if (currentWaypoint.GetSiblingIndex() > 1)
         {
+            Debug.Log("LastWayPoint");
             foreach (Transform child in wayPointParent)
             {
                 GameObject.Destroy(child.gameObject);

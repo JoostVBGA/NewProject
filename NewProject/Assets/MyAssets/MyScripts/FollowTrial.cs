@@ -15,30 +15,64 @@ public class FollowTrial : MonoBehaviour
     // current target that the object moves toward
     private Transform currentWayPoint;
 
+    public Transform wayPointParent;
+
+    public Transform player;
+
+    public GameObject playerhit;
+
+    public GameObject wayPoint;
+
+    [SerializeField] private Camera mainCamera;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnMouseDown()
     {
-        // set initial position to the first waypoint
-        currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
-        transform.position = currentWayPoint.position;
+       if (wayPointParent.childCount > 0) 
+        {
+            foreach (Transform child in wayPointParent)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            var firstObject = Instantiate(wayPoint, player.position, Quaternion.identity, wayPointParent);
+            firstObject.name = "wayPoint";
+            currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
+        }
 
-        // set next waypoint target
-        currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
-
-        
+        else 
+        {
+            Debug.Log("Click");
+            var firstObject = Instantiate(wayPoint, player.position, Quaternion.identity, wayPointParent);
+            firstObject.name = "wayPoint";
+            currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnMouseDrag()
     {
+
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        {
+            playerhit = raycastHit.transform.gameObject;
+            raycastHit.point = new Vector3(raycastHit.point.x, 0f, raycastHit.point.z);
+            var newObject = Instantiate(wayPoint, raycastHit.point, Quaternion.identity, wayPointParent);
+            newObject.name = "wayPoint (" + newObject.transform.GetSiblingIndex() + ")";
+        }
+    }
+
+
+
+        // Update is called once per frame
+        void Update() 
+        {
         transform.LookAt(currentWayPoint);
 
         transform.position = Vector3.MoveTowards(transform.position, currentWayPoint.position, moveSpeed * Time.deltaTime);
         if (Vector3.Distance(transform.position, currentWayPoint.position) < distanceThreshold)
-        {
             currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
         }
-    }
+
 }

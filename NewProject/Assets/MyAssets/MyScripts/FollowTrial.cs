@@ -25,9 +25,24 @@ public class FollowTrial : MonoBehaviour
 
     [SerializeField] private Camera mainCamera;
 
+    private void Start()
+    {
+        EventSystem.current.PlayerDrag += OnPlayerDrag;
+    }
+
+    private void OnPlayerDrag()
+    {
+
+    }
+
+    private void OnDestroy()
+    {
+        EventSystem.current.PlayerDrag -= OnPlayerDrag;
+    }
 
     private void OnMouseDown()
     {
+
        if (wayPointParent.childCount > 0) 
         {
             foreach (Transform child in wayPointParent)
@@ -58,9 +73,10 @@ public class FollowTrial : MonoBehaviour
 
     private void OnMouseDrag()
     {
-
+        //Call the raycast from input mouseposition
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
+        //If raycast hits instantiatie a new waypoint object under waypoint parent
         if (Physics.Raycast(ray, out RaycastHit raycastHit))
         {
             playerhit = raycastHit.transform.gameObject;
@@ -72,6 +88,7 @@ public class FollowTrial : MonoBehaviour
 
     private void OnMouseUp()
     {
+        //If there is only 1 waypoint at MouseUp destroy that waypoint
         if (wayPointParent.childCount < 2)
         {
             foreach (Transform child in wayPointParent)
@@ -81,14 +98,16 @@ public class FollowTrial : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update() 
         {
         
-
+        //looks at next waypoint
         transform.LookAt(currentWayPoint);
 
+        // follows to the nextwaypoint
         transform.position = Vector3.MoveTowards(transform.position, currentWayPoint.position, moveSpeed * Time.deltaTime);
+
+        //if nextwaypoint is reached set next waypoint
         if (Vector3.Distance(transform.position, currentWayPoint.position) < distanceThreshold)
             currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
         }

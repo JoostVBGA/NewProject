@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WayPoints : MonoBehaviour
 {
-    public Transform wayPointParent;
 
     [Range(0f, 2f)]
     [SerializeField] private float waypointSize = 1f;
@@ -42,7 +41,7 @@ public class WayPoints : MonoBehaviour
         if (currentWaypoint.GetSiblingIndex() > 1)
         {
             Debug.Log("LastWayPoint");
-            foreach (Transform child in wayPointParent)
+            foreach (Transform child in transform)
             {
                 GameObject.Destroy(child.gameObject);
             }

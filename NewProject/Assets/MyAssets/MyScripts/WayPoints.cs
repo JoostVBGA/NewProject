@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class WayPoints : MonoBehaviour
 {
+    public Transform wayPointParent;
 
     [Range(0f, 2f)]
     [SerializeField] private float waypointSize = 1f;
 
-    //Draw Gizmos in Editor
     private void OnDrawGizmos()
     {
         
@@ -25,13 +25,9 @@ public class WayPoints : MonoBehaviour
         } 
     }
 
-    //Waypoint System, get next waypoint, Destroy when at last waypoint
+
     public Transform GetNextWaypoint(Transform currentWaypoint)
     {
-        if (transform.childCount < 1)
-        {
-            return null;
-        }
 
         if (currentWaypoint == null)
         {
@@ -46,13 +42,12 @@ public class WayPoints : MonoBehaviour
         if (currentWaypoint.GetSiblingIndex() > 1)
         {
             Debug.Log("LastWayPoint");
-            foreach (Transform child in transform)
+            foreach (Transform child in wayPointParent)
             {
                 GameObject.Destroy(child.gameObject);
             }
             Debug.Log("DestroyWayPoints");
         }
         return null;
-
     }
 }

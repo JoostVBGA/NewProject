@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerBattle : MonoBehaviour
 {
     // stores a reference to the waypoint system this object wil use
     [SerializeField] private WayPoints waypoints;

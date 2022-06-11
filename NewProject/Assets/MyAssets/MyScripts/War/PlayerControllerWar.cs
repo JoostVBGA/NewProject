@@ -23,19 +23,9 @@ public class PlayerControllerWar : MonoBehaviour
     [SerializeField] private LayerMask Ground;
 
     [SerializeField] private Camera mainCamera;
-
-    private void Start()
-    {
-        EventSystem.current.OnCharacterTriggerEnter += OnCharacterCollision;
-    }
-
-    private void OnDestroy()
-    {
-        EventSystem.current.OnCharacterTriggerEnter -= OnCharacterCollision;
-    }
-
     private void OnMouseDown()
     {
+
         Debug.Log("Click");
         if (wayPointParent.childCount > 0)
         {
@@ -110,11 +100,5 @@ public class PlayerControllerWar : MonoBehaviour
         }
         
     }
-
-    private void OnCharacterCollision()
-    {
-        Debug.Log("Collision");
-    }
-
 
 }

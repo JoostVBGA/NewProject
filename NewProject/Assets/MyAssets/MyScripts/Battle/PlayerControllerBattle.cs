@@ -50,7 +50,7 @@ public class PlayerControllerBattle : MonoBehaviour
             }
             var firstObject = Instantiate(wayPoint, transform.position, Quaternion.identity, wayPointParent);
             firstObject.name = "wayPoint";
-
+            firstObject.AddComponent<LineRenderer>();
             Invoke("Delay", 0);
 
         }

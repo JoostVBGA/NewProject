@@ -41,4 +41,34 @@ public class EventSystem : MonoBehaviour
             FightMenuTriggerEnter();
         }
     }
+
+    public event Action OnNPCInteract;
+    //player start spawning Waypoints
+    public void NPCInteract()
+    {
+        if (OnNPCInteract != null)
+        {
+            OnNPCInteract();
+        }
+    }
+
+    public event Action OnTransferTriggerEnter;
+    //player start spawning Waypoints
+    public void TransferTriggerEnter()
+    {
+        if (OnTransferTriggerEnter != null)
+        {
+            OnTransferTriggerEnter();
+        }
+    }
+
+    public event Action OnObjectInteract;
+    //player start spawning Waypoints
+    public void ObjectInteract()
+    {
+        if (OnObjectInteract != null)
+        {
+            OnObjectInteract();
+        }
+    }
 }

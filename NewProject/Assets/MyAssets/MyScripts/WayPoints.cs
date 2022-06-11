@@ -8,6 +8,11 @@ public class WayPoints : MonoBehaviour
     [Range(0f, 2f)]
     [SerializeField] private float waypointSize = 1f;
 
+    private void Start()
+    {
+        EventSystem.current.OnCharacterTriggerEnter += BattleStateOn;
+    }
+
     private void OnDrawGizmos()
     {
         
@@ -48,5 +53,20 @@ public class WayPoints : MonoBehaviour
             Debug.Log("DestroyWayPoints");
         }
         return null;
+
+    }
+
+    private void BattleStateOn()
+    {
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        Debug.Log("DestroyedWayPoints");
+    }
+
+    private void OnDestroy()
+    {
+        EventSystem.current.OnCharacterTriggerEnter -= BattleStateOn;
     }
 }

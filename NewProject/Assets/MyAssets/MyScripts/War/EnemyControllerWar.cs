@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyControllerBattle : MonoBehaviour
+public class EnemyControllerWar : MonoBehaviour
 {
 
     private void OnTriggerEnter(Collider other)

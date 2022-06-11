@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class PlayerControllerBattle : MonoBehaviour
+public class PlayerControllerWar : MonoBehaviour
 {
     // stores a reference to the waypoint system this object wil use
     [SerializeField] private WayPoints waypoints;
@@ -25,23 +26,17 @@ public class PlayerControllerBattle : MonoBehaviour
 
     private void Start()
     {
-        EventSystem.current.PlayerDrag += OnPlayerDrag;
         EventSystem.current.OnCharacterTriggerEnter += OnCharacterCollision;
-    }
-
-    private void OnPlayerDrag()
-    {
-        
     }
 
     private void OnDestroy()
     {
-        EventSystem.current.PlayerDrag -= OnPlayerDrag;
+        EventSystem.current.OnCharacterTriggerEnter -= OnCharacterCollision;
     }
 
     private void OnMouseDown()
     {
-
+        Debug.Log("Click");
         if (wayPointParent.childCount > 0)
         {
             foreach (Transform child in wayPointParent)

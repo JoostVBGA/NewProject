@@ -122,40 +122,13 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             ""id"": ""7f3868ab-d148-4744-aaac-7f45a18e047b"",
             ""actions"": [
                 {
-                    ""name"": ""PlayerUp"",
-                    ""type"": ""Button"",
-                    ""id"": ""93b16519-df9d-45ef-b5ef-2d2a56fcba35"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""cb31a19b-0e83-49c0-9225-a793f6a25e25"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""PlayerDown"",
-                    ""type"": ""Button"",
-                    ""id"": ""5e861699-34a9-4bb0-ae2c-9538b401e930"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""PlayerLeft"",
-                    ""type"": ""Button"",
-                    ""id"": ""62d48f3c-23fb-44a7-bcac-1463098dedee"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""PlayerRight"",
-                    ""type"": ""Button"",
-                    ""id"": ""c110fde1-f717-4ec5-860f-0068967d3573"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""PlayerInteract"",
@@ -168,50 +141,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""d08331d9-3431-485e-b24d-c3422ef0ea81"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerUp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""97e76507-a55f-4e97-88bc-fc18363a7cd2"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerDown"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cdc4c7db-0423-4b29-93ae-3b98d0fb5fda"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerLeft"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b70de18a-3947-4e8a-9aa9-20661cce3462"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""943503b8-2ed1-441c-8fb4-348ffe193c07"",
@@ -233,6 +162,61 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""PlayerInteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""ab0a5c6f-5c42-428f-99f2-41975dfb5ddd"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""c645bc3e-e5fc-4227-956d-4f70144de5a6"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""df5d37a2-6c5f-42c1-9fb4-de4b76a37138"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""249fce9e-8eab-41c2-a332-9cfe763efc9f"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""cad83794-e9ee-40d4-acce-91e1d1916e00"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -249,10 +233,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_WarState_CameraRight = m_WarState.FindAction("CameraRight", throwIfNotFound: true);
         // OverWorldState
         m_OverWorldState = asset.FindActionMap("OverWorldState", throwIfNotFound: true);
-        m_OverWorldState_PlayerUp = m_OverWorldState.FindAction("PlayerUp", throwIfNotFound: true);
-        m_OverWorldState_PlayerDown = m_OverWorldState.FindAction("PlayerDown", throwIfNotFound: true);
-        m_OverWorldState_PlayerLeft = m_OverWorldState.FindAction("PlayerLeft", throwIfNotFound: true);
-        m_OverWorldState_PlayerRight = m_OverWorldState.FindAction("PlayerRight", throwIfNotFound: true);
+        m_OverWorldState_Movement = m_OverWorldState.FindAction("Movement", throwIfNotFound: true);
         m_OverWorldState_PlayerInteract = m_OverWorldState.FindAction("PlayerInteract", throwIfNotFound: true);
     }
 
@@ -395,19 +376,13 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     // OverWorldState
     private readonly InputActionMap m_OverWorldState;
     private IOverWorldStateActions m_OverWorldStateActionsCallbackInterface;
-    private readonly InputAction m_OverWorldState_PlayerUp;
-    private readonly InputAction m_OverWorldState_PlayerDown;
-    private readonly InputAction m_OverWorldState_PlayerLeft;
-    private readonly InputAction m_OverWorldState_PlayerRight;
+    private readonly InputAction m_OverWorldState_Movement;
     private readonly InputAction m_OverWorldState_PlayerInteract;
     public struct OverWorldStateActions
     {
         private @PlayerControls m_Wrapper;
         public OverWorldStateActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @PlayerUp => m_Wrapper.m_OverWorldState_PlayerUp;
-        public InputAction @PlayerDown => m_Wrapper.m_OverWorldState_PlayerDown;
-        public InputAction @PlayerLeft => m_Wrapper.m_OverWorldState_PlayerLeft;
-        public InputAction @PlayerRight => m_Wrapper.m_OverWorldState_PlayerRight;
+        public InputAction @Movement => m_Wrapper.m_OverWorldState_Movement;
         public InputAction @PlayerInteract => m_Wrapper.m_OverWorldState_PlayerInteract;
         public InputActionMap Get() { return m_Wrapper.m_OverWorldState; }
         public void Enable() { Get().Enable(); }
@@ -418,18 +393,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_OverWorldStateActionsCallbackInterface != null)
             {
-                @PlayerUp.started -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerUp;
-                @PlayerUp.performed -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerUp;
-                @PlayerUp.canceled -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerUp;
-                @PlayerDown.started -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerDown;
-                @PlayerDown.performed -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerDown;
-                @PlayerDown.canceled -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerDown;
-                @PlayerLeft.started -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerLeft;
-                @PlayerLeft.performed -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerLeft;
-                @PlayerLeft.canceled -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerLeft;
-                @PlayerRight.started -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerRight;
-                @PlayerRight.performed -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerRight;
-                @PlayerRight.canceled -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerRight;
+                @Movement.started -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnMovement;
                 @PlayerInteract.started -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerInteract;
                 @PlayerInteract.performed -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerInteract;
                 @PlayerInteract.canceled -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerInteract;
@@ -437,18 +403,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             m_Wrapper.m_OverWorldStateActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @PlayerUp.started += instance.OnPlayerUp;
-                @PlayerUp.performed += instance.OnPlayerUp;
-                @PlayerUp.canceled += instance.OnPlayerUp;
-                @PlayerDown.started += instance.OnPlayerDown;
-                @PlayerDown.performed += instance.OnPlayerDown;
-                @PlayerDown.canceled += instance.OnPlayerDown;
-                @PlayerLeft.started += instance.OnPlayerLeft;
-                @PlayerLeft.performed += instance.OnPlayerLeft;
-                @PlayerLeft.canceled += instance.OnPlayerLeft;
-                @PlayerRight.started += instance.OnPlayerRight;
-                @PlayerRight.performed += instance.OnPlayerRight;
-                @PlayerRight.canceled += instance.OnPlayerRight;
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
                 @PlayerInteract.started += instance.OnPlayerInteract;
                 @PlayerInteract.performed += instance.OnPlayerInteract;
                 @PlayerInteract.canceled += instance.OnPlayerInteract;
@@ -468,10 +425,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     }
     public interface IOverWorldStateActions
     {
-        void OnPlayerUp(InputAction.CallbackContext context);
-        void OnPlayerDown(InputAction.CallbackContext context);
-        void OnPlayerLeft(InputAction.CallbackContext context);
-        void OnPlayerRight(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
         void OnPlayerInteract(InputAction.CallbackContext context);
     }
 }

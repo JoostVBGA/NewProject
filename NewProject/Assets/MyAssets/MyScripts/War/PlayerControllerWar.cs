@@ -8,6 +8,10 @@ public class PlayerControllerWar : MonoBehaviour
     // stores a reference to the waypoint system this object wil use
     [SerializeField] private WayPoints waypoints;
 
+    [SerializeField] private float wayPointDistance = 0.2f;
+
+    private Transform lastWayPoint;
+
     // how fast object moves
     [SerializeField] private float moveSpeed = 5f;
 
@@ -35,7 +39,7 @@ public class PlayerControllerWar : MonoBehaviour
             }
             var firstObject = Instantiate(wayPoint, transform.position, Quaternion.identity, wayPointParent);
             firstObject.name = "wayPoint";
-            firstObject.AddComponent<LineRenderer>();
+            lastWayPoint = firstObject.transform;
             Invoke("Delay", 0);
 
         }
@@ -45,6 +49,7 @@ public class PlayerControllerWar : MonoBehaviour
             Debug.Log("Click");
             var firstObject = Instantiate(wayPoint, transform.position, Quaternion.identity, wayPointParent);
             firstObject.name = "wayPoint";
+            lastWayPoint = firstObject.transform;
             Invoke("Delay", 0);
         }
     }
@@ -62,8 +67,21 @@ public class PlayerControllerWar : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue,Ground))
         {
             raycastHit.point = new Vector3(raycastHit.point.x, 0f, raycastHit.point.z);
+
+            if(lastWayPoint == null)
+            {
+                return;
+            }
+            float distance = Vector3.Distance(raycastHit.point, lastWayPoint.transform.position);
+
+            if (distance < wayPointDistance)
+            {
+                return;
+            }
+
             var newObject = Instantiate(wayPoint, raycastHit.point, Quaternion.identity, wayPointParent);
             newObject.name = "wayPoint (" + newObject.transform.GetSiblingIndex() + ")";
+            lastWayPoint = newObject.transform;
         }
     }
 
@@ -86,18 +104,21 @@ public class PlayerControllerWar : MonoBehaviour
             return;
         }
 
-        else
+        //looks at next waypoint
+        transform.LookAt(currentWayPoint);
+
+        if (currentWayPoint == null)
         {
-            //looks at next waypoint
-            transform.LookAt(currentWayPoint);
-
-            // follows to the nextwaypoint
-            transform.position = Vector3.MoveTowards(transform.position, currentWayPoint.position, moveSpeed * Time.deltaTime);
-
-            //if nextwaypoint is reached set next waypoint
-            if (Vector3.Distance(transform.position, currentWayPoint.position) < distanceThreshold)
-                currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
+            return;
         }
+
+        // follows to the nextwaypoint
+        transform.position = Vector3.MoveTowards(transform.position, currentWayPoint.position, moveSpeed * Time.deltaTime);
+        
+        //if nextwaypoint is reached set next waypoint
+        if (Vector3.Distance(transform.position, currentWayPoint.position) < distanceThreshold)
+                currentWayPoint = waypoints.GetNextWaypoint(currentWayPoint);
+        
         
     }
 

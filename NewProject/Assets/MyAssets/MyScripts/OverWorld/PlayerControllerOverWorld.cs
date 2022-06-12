@@ -29,7 +29,7 @@ public class PlayerControllerOverWorld : MonoBehaviour
 
     private void Awake()
     {
-        rb =this.GetComponent<Rigidbody>();
+        rb = this.GetComponent<Rigidbody>();
         playerControls = new PlayerControls();
 
     }
@@ -51,7 +51,7 @@ public class PlayerControllerOverWorld : MonoBehaviour
     private void FixedUpdate()
     {
         forceDirection += move.ReadValue<Vector2>().x * GetCameraRight(playerCamera) * movementForce;
-        forceDirection += move.ReadValue<Vector2>().y * GetCameraForward(playerCamera)* movementForce;
+        forceDirection += move.ReadValue<Vector2>().y * GetCameraForward(playerCamera) * movementForce;
 
         rb.AddForce(forceDirection, ForceMode.Impulse);
         forceDirection = Vector3.zero;
@@ -59,7 +59,7 @@ public class PlayerControllerOverWorld : MonoBehaviour
         Vector3 horizonalVelocity = rb.velocity;
         horizonalVelocity.y = 0;
 
-        if(horizonalVelocity.sqrMagnitude > maxSpeed * maxSpeed)
+        if (horizonalVelocity.sqrMagnitude > maxSpeed * maxSpeed)
         {
             rb.velocity = horizonalVelocity.normalized * maxSpeed;
         }
@@ -73,8 +73,8 @@ public class PlayerControllerOverWorld : MonoBehaviour
         direction.y = 0f;
 
         if (move.ReadValue<Vector2>().sqrMagnitude > 0.1f && direction.sqrMagnitude > 0.1f)
-        this.rb.rotation = Quaternion.LookRotation (direction, Vector3.up * turnSpeed);
-        
+            this.rb.rotation = Quaternion.LookRotation(direction, Vector3.up * turnSpeed);
+
         else
             rb.angularVelocity = Vector3.zero;
     }
@@ -91,18 +91,5 @@ public class PlayerControllerOverWorld : MonoBehaviour
         Vector3 right = playerCamera.transform.right;
         right.y = 0;
         return right.normalized;
-    }
-
-    void Update()
-    {
-        if (playerControls.OverWorldState.PlayerInteract.ReadValue<float>() == 1)
-        {
-            Interact();
-        }
-    }
-
-    void Interact()
-    {
-      
     }
 }

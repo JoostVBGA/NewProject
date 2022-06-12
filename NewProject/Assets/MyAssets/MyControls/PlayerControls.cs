@@ -158,7 +158,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""PlayerInteract"",
                     ""type"": ""Button"",
                     ""id"": ""8e5501d6-9f25-47b0-81b1-281c2566f96c"",
                     ""expectedControlType"": ""Button"",
@@ -214,23 +214,23 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7cdeafe9-cedd-417c-b5ae-f0ca6bfeb5ab"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""943503b8-2ed1-441c-8fb4-348ffe193c07"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Interact"",
+                    ""action"": ""PlayerInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""06510159-93f0-42a5-9341-1069f11c971a"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlayerInteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -253,7 +253,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_OverWorldState_PlayerDown = m_OverWorldState.FindAction("PlayerDown", throwIfNotFound: true);
         m_OverWorldState_PlayerLeft = m_OverWorldState.FindAction("PlayerLeft", throwIfNotFound: true);
         m_OverWorldState_PlayerRight = m_OverWorldState.FindAction("PlayerRight", throwIfNotFound: true);
-        m_OverWorldState_Interact = m_OverWorldState.FindAction("Interact", throwIfNotFound: true);
+        m_OverWorldState_PlayerInteract = m_OverWorldState.FindAction("PlayerInteract", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -399,7 +399,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_OverWorldState_PlayerDown;
     private readonly InputAction m_OverWorldState_PlayerLeft;
     private readonly InputAction m_OverWorldState_PlayerRight;
-    private readonly InputAction m_OverWorldState_Interact;
+    private readonly InputAction m_OverWorldState_PlayerInteract;
     public struct OverWorldStateActions
     {
         private @PlayerControls m_Wrapper;
@@ -408,7 +408,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @PlayerDown => m_Wrapper.m_OverWorldState_PlayerDown;
         public InputAction @PlayerLeft => m_Wrapper.m_OverWorldState_PlayerLeft;
         public InputAction @PlayerRight => m_Wrapper.m_OverWorldState_PlayerRight;
-        public InputAction @Interact => m_Wrapper.m_OverWorldState_Interact;
+        public InputAction @PlayerInteract => m_Wrapper.m_OverWorldState_PlayerInteract;
         public InputActionMap Get() { return m_Wrapper.m_OverWorldState; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -430,9 +430,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @PlayerRight.started -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerRight;
                 @PlayerRight.performed -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerRight;
                 @PlayerRight.canceled -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerRight;
-                @Interact.started -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnInteract;
+                @PlayerInteract.started -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerInteract;
+                @PlayerInteract.performed -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerInteract;
+                @PlayerInteract.canceled -= m_Wrapper.m_OverWorldStateActionsCallbackInterface.OnPlayerInteract;
             }
             m_Wrapper.m_OverWorldStateActionsCallbackInterface = instance;
             if (instance != null)
@@ -449,9 +449,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @PlayerRight.started += instance.OnPlayerRight;
                 @PlayerRight.performed += instance.OnPlayerRight;
                 @PlayerRight.canceled += instance.OnPlayerRight;
-                @Interact.started += instance.OnInteract;
-                @Interact.performed += instance.OnInteract;
-                @Interact.canceled += instance.OnInteract;
+                @PlayerInteract.started += instance.OnPlayerInteract;
+                @PlayerInteract.performed += instance.OnPlayerInteract;
+                @PlayerInteract.canceled += instance.OnPlayerInteract;
             }
         }
     }
@@ -472,6 +472,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnPlayerDown(InputAction.CallbackContext context);
         void OnPlayerLeft(InputAction.CallbackContext context);
         void OnPlayerRight(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
+        void OnPlayerInteract(InputAction.CallbackContext context);
     }
 }

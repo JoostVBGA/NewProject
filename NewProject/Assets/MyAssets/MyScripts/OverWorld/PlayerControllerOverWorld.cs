@@ -62,5 +62,15 @@ public class PlayerControllerOverWorld : MonoBehaviour
         pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
 
         transform.position = pos;
+
+        if (playerControls.OverWorldState.PlayerInteract.ReadValue<float>() == 1)
+        {
+            Interact();
+        }
+    }
+
+    void Interact()
+    {
+      
     }
 }

@@ -13,13 +13,11 @@ public class BattleCanvasSystem : MonoBehaviour
     private void BattleStateOn()
     {
         transform.GetChild(0).gameObject.SetActive(true);
-        Debug.Log("BattleCanvasOn");
     }
 
     private void BattleStateOff()
     {
         transform.GetChild(0).gameObject.SetActive(false);
-        Debug.Log("BattleCanvasOff");
     }
 
     private void OnDestroy()

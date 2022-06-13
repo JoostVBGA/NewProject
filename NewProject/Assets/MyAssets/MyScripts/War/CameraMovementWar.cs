@@ -35,6 +35,9 @@ public class CameraMovementWar: MonoBehaviour
         if (playerControls.WarState.CameraUp.ReadValue<float>() == 1)
         {
             pos.z += panSpeed * Time.deltaTime;
+            
+            EventSystem.current.CameraActive();
+
         }
 
         transform.position = pos;
@@ -42,6 +45,8 @@ public class CameraMovementWar: MonoBehaviour
         if (playerControls.WarState.CameraDown.ReadValue<float>() == 1)
         {
             pos.z -= panSpeed * Time.deltaTime;
+
+            EventSystem.current.CameraActive();
         }
 
         transform.position = pos;
@@ -49,6 +54,8 @@ public class CameraMovementWar: MonoBehaviour
         if (playerControls.WarState.CameraLeft.ReadValue<float>() == 1)
         {
             pos.x -= panSpeed * Time.deltaTime;
+
+            EventSystem.current.CameraActive();
         }
 
         transform.position = pos;
@@ -56,6 +63,8 @@ public class CameraMovementWar: MonoBehaviour
         if (playerControls.WarState.CameraRight.ReadValue<float>() == 1)
         {
             pos.x += panSpeed * Time.deltaTime;
+
+            EventSystem.current.CameraActive();
         }
 
         pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);

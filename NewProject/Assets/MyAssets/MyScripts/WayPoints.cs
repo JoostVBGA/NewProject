@@ -45,12 +45,10 @@ public class WayPoints : MonoBehaviour
 
         if (currentWaypoint.GetSiblingIndex() > 1)
         {
-            Debug.Log("LastWayPoint");
             foreach (Transform child in transform)
             {
                 GameObject.Destroy(child.gameObject);
             }
-            Debug.Log("DestroyWayPoints");
         }
         return null;
 
@@ -62,7 +60,6 @@ public class WayPoints : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
-        Debug.Log("DestroyedWayPoints");
     }
 
     private void OnDestroy()

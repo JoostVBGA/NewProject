@@ -7,7 +7,11 @@ public class CameraSwitchScript : MonoBehaviour
 
     private Animator animator;
 
-    public Behaviour PlayerScript;
+    public Transform WarCamera;
+
+    public Transform PlayerCamera;
+
+    private bool BattleState = false;
 
     private void Awake()
     {
@@ -28,25 +32,45 @@ public class CameraSwitchScript : MonoBehaviour
     {
         EventSystem.current.OnCharacterTriggerEnter += BattleStateOn;
         EventSystem.current.OnBattleStateExit += BattleStateOff;
+        EventSystem.current.OnCameraActive += CameraActive;
+        EventSystem.current.OnCameraInActive += CameraInActive;
     }
 
     private void BattleStateOn()
     {
-        animator.Play("BattlePlayerCamera");
-
-        Debug.Log("ToBattleCamera");
+        animator.Play("BattleCamera");
+        BattleState = true;
     }
 
     private void BattleStateOff()
     {
-        animator.Play("WarCamera");
+        animator.Play("PlayerCamera");
+        BattleState = false;
+    }
 
-        Debug.Log("ToWarCamera");
+    public void CameraInActive()
+    {
+        //Time Delay
+
+        //check for closest camera
+        animator.Play("PlayerCamera");
+    }
+
+    public void CameraActive()
+    {
+        if (BattleState == true)
+        {
+            return;
+        }
+
+        animator.Play("WarCamera");
     }
 
     private void OnDestroy()
     {
         EventSystem.current.OnCharacterTriggerEnter -= BattleStateOn;
         EventSystem.current.OnBattleStateExit -= BattleStateOff;
+        EventSystem.current.OnCameraActive -= CameraActive;
+        EventSystem.current.OnCameraInActive -= CameraInActive;
     }
 }

@@ -22,12 +22,10 @@ public class FightSystem : MonoBehaviour
     private void BattleStateOn()
     {
         PlayerScript.enabled = false;
-        Debug.Log("BattleState");
     }
 
     private void BattleStateOff()
     {
         PlayerScript.enabled = true;
-        Debug.Log("WarState");
     }
 }

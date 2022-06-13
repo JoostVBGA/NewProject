@@ -13,12 +13,10 @@ public class WarCanvasSystem : MonoBehaviour
     private void BattleStateOn()
     {
         transform.GetChild(0).gameObject.SetActive(false);
-        Debug.Log("WarCanvasOff");
     }
 
     private void BattleStateOff()
     {
-        Debug.Log("WarCanvasOnn");
         transform.GetChild(0).gameObject.SetActive(true);
     }
 

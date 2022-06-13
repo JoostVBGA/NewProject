@@ -30,7 +30,6 @@ public class PlayerControllerWar : MonoBehaviour
     private void OnMouseDown()
     {
 
-        Debug.Log("Click");
         if (wayPointParent.childCount > 0)
         {
             foreach (Transform child in wayPointParent)
@@ -46,7 +45,6 @@ public class PlayerControllerWar : MonoBehaviour
 
         else
         {
-            Debug.Log("Click");
             var firstObject = Instantiate(wayPoint, transform.position, Quaternion.identity, wayPointParent);
             firstObject.name = "wayPoint";
             lastWayPoint = firstObject.transform;

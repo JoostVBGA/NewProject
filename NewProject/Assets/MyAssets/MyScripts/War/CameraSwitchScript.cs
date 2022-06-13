@@ -33,8 +33,6 @@ public class CameraSwitchScript : MonoBehaviour
     private void BattleStateOn()
     {
         animator.Play("BattlePlayerCamera");
-     
-        PlayerScript.enabled= false;
 
         Debug.Log("ToBattleCamera");
     }

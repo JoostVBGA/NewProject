@@ -770,7 +770,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422516341}
-  m_LocalRotation: {x: 0.51401097, y: 0.000000007379675, z: -0.000000004422133, w: 0.8577836}
+  m_LocalRotation: {x: 0.51401097, y: -0.000000007379675, z: 0.0000000044221338, w: 0.8577836}
   m_LocalPosition: {x: 0, y: 12.93, z: -6.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1563,7 +1563,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 924200237}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1355316172}
+        m_TargetAssemblyTypeName: FightSystem, Assembly-CSharp
+        m_MethodName: SpecialMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &924200237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2377,6 +2389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49d94ca621ce384f9c061a75eb769f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  specialMove: 0
+  PlayerScript: {fileID: 1965204949}
 --- !u!4 &1355316173
 Transform:
   m_ObjectHideFlags: 0

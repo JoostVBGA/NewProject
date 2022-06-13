@@ -306,6 +306,7 @@ GameObject:
   - component: {fileID: 318220064}
   - component: {fileID: 318220066}
   - component: {fileID: 318220065}
+  - component: {fileID: 318220067}
   m_Layer: 0
   m_Name: NPCModel
   m_TagString: Untagged
@@ -378,6 +379,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318220063}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!136 &318220067
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318220063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.83
+  m_Height: 1.24
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &342924144
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,8 +636,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 642438764}
-  - component: {fileID: 642438767}
   - component: {fileID: 642438768}
+  - component: {fileID: 642438770}
   - component: {fileID: 642438769}
   m_Layer: 8
   m_Name: PlayerOverWorld
@@ -649,19 +664,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &642438767
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642438763}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &642438768
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -694,6 +696,20 @@ MonoBehaviour:
   maxSpeed: 5
   turnSpeed: 0.1
   playerCamera: {fileID: 963194227}
+--- !u!136 &642438770
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642438763}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &681411071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,12 +1194,13 @@ GameObject:
   - component: {fileID: 814512399}
   - component: {fileID: 814512401}
   - component: {fileID: 814512400}
+  - component: {fileID: 814512402}
   m_Layer: 0
   m_Name: ChestModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &814512399
 Transform:
@@ -1250,6 +1267,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814512398}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &814512402
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814512398}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &860262242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,7 +1624,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &968471263
 MonoBehaviour:
@@ -2372,5 +2402,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 1, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5, y: 2.5135944, z: 5}
+  m_Center: {x: 0, y: 0.75679743, z: 0}

@@ -7,11 +7,11 @@ public class CameraSwitchScript : MonoBehaviour
 
     private Animator animator;
 
-    public Transform WarCamera;
+    public Transform WarCamera ;
 
     public Transform PlayerCamera;
 
-    private bool BattleState = false;
+    public bool OnAPlayerCamera = true;
 
     private void Awake()
     {
@@ -39,13 +39,13 @@ public class CameraSwitchScript : MonoBehaviour
     private void BattleStateOn()
     {
         animator.Play("BattleCamera");
-        BattleState = true;
+        OnAPlayerCamera = false;
     }
 
     private void BattleStateOff()
     {
         animator.Play("PlayerCamera");
-        BattleState = false;
+        OnAPlayerCamera = true;
     }
 
     public void CameraInActive()
@@ -54,16 +54,18 @@ public class CameraSwitchScript : MonoBehaviour
 
         //check for closest camera
         animator.Play("PlayerCamera");
+        OnAPlayerCamera = true;
     }
 
     public void CameraActive()
     {
-        if (BattleState == true)
+        if (OnAPlayerCamera == true)
         {
-            return;
+            WarCamera.position = PlayerCamera.position;
+            animator.Play("WarCamera");
+
         }
 
-        animator.Play("WarCamera");
     }
 
     private void OnDestroy()

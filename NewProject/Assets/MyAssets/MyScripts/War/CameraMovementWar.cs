@@ -13,6 +13,12 @@ public class CameraMovementWar: MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerControls();
+        
+    }
+
+    private void Start()
+    {
+        EventSystem.current.OnCameraActive += CameraActive;
     }
 
     private void OnEnable()

@@ -100,7 +100,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""UseStored"",
+                    ""name"": ""UseMagic"",
                     ""type"": ""Button"",
                     ""id"": ""85c89c44-116f-4b16-9a45-3900295cdafd"",
                     ""expectedControlType"": ""Button"",
@@ -258,7 +258,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""UseStored"",
+                    ""action"": ""UseMagic"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -288,7 +288,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         m_Player_StartMagic = m_Player.FindAction("StartMagic", throwIfNotFound: true);
         m_Player_Opt1 = m_Player.FindAction("Opt1", throwIfNotFound: true);
         m_Player_Opt2 = m_Player.FindAction("Opt2", throwIfNotFound: true);
-        m_Player_UseStored = m_Player.FindAction("UseStored", throwIfNotFound: true);
+        m_Player_UseMagic = m_Player.FindAction("UseMagic", throwIfNotFound: true);
         m_Player_Store = m_Player.FindAction("Store", throwIfNotFound: true);
     }
 
@@ -357,7 +357,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_StartMagic;
     private readonly InputAction m_Player_Opt1;
     private readonly InputAction m_Player_Opt2;
-    private readonly InputAction m_Player_UseStored;
+    private readonly InputAction m_Player_UseMagic;
     private readonly InputAction m_Player_Store;
     public struct PlayerActions
     {
@@ -371,7 +371,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         public InputAction @StartMagic => m_Wrapper.m_Player_StartMagic;
         public InputAction @Opt1 => m_Wrapper.m_Player_Opt1;
         public InputAction @Opt2 => m_Wrapper.m_Player_Opt2;
-        public InputAction @UseStored => m_Wrapper.m_Player_UseStored;
+        public InputAction @UseMagic => m_Wrapper.m_Player_UseMagic;
         public InputAction @Store => m_Wrapper.m_Player_Store;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -406,9 +406,9 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @Opt2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpt2;
                 @Opt2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpt2;
                 @Opt2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpt2;
-                @UseStored.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseStored;
-                @UseStored.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseStored;
-                @UseStored.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseStored;
+                @UseMagic.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseMagic;
+                @UseMagic.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseMagic;
+                @UseMagic.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseMagic;
                 @Store.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStore;
                 @Store.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStore;
                 @Store.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStore;
@@ -440,9 +440,9 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @Opt2.started += instance.OnOpt2;
                 @Opt2.performed += instance.OnOpt2;
                 @Opt2.canceled += instance.OnOpt2;
-                @UseStored.started += instance.OnUseStored;
-                @UseStored.performed += instance.OnUseStored;
-                @UseStored.canceled += instance.OnUseStored;
+                @UseMagic.started += instance.OnUseMagic;
+                @UseMagic.performed += instance.OnUseMagic;
+                @UseMagic.canceled += instance.OnUseMagic;
                 @Store.started += instance.OnStore;
                 @Store.performed += instance.OnStore;
                 @Store.canceled += instance.OnStore;
@@ -460,7 +460,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         void OnStartMagic(InputAction.CallbackContext context);
         void OnOpt1(InputAction.CallbackContext context);
         void OnOpt2(InputAction.CallbackContext context);
-        void OnUseStored(InputAction.CallbackContext context);
+        void OnUseMagic(InputAction.CallbackContext context);
         void OnStore(InputAction.CallbackContext context);
     }
 }

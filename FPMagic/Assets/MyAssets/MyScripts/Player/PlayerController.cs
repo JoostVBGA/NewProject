@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (controls.Player.Jump.triggered)
+        if (controls.Player.Jump.triggered && isGrounded)
         {
             Debug.Log("Jumping");
 

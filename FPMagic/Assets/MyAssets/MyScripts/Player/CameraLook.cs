@@ -7,7 +7,7 @@ public class CameraLook : MonoBehaviour
 {
     private GameInputs controls;
 
-    private float mouseSensitivity = 100f;
+    public float mouseSensitivity = 100f;
 
     private Vector2 mouseLook;
 

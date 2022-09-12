@@ -449,6 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7870c50d723be0e458f563c13de3cd9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseSensitivity: 44.25
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,8 +843,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5c4fbb5dcfd654ba20603df10e50d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
-  gravity: -9.81
+  moveSpeed: 7
+  gravity: -150
   jumpHeight: 2.4
   Ground: {fileID: 940697416}
   distanceToGround: 11.22

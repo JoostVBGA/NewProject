@@ -25,22 +25,13 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
     ""maps"": [
         {
             ""name"": ""Player"",
-            ""id"": ""33d414f1-9aff-4c3c-92a1-371c2f5f3b6c"",
+            ""id"": ""6f055bca-3d7c-4554-9602-34c67e39f801"",
             ""actions"": [
                 {
-                    ""name"": ""Power"",
-                    ""type"": ""Button"",
-                    ""id"": ""a212c469-504f-4726-83f2-7d3f12cb212f"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Speed"",
-                    ""type"": ""Button"",
-                    ""id"": ""b2c08218-d5ac-43e8-b868-e2b0d6c67962"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""Look"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""66d29c30-88ba-4338-a67d-fc66764a2469"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -48,16 +39,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Movement"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""0f6d09ff-bea6-4101-8bed-4eeecbda6d9e"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Look"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""30fa0c8f-2318-4e3b-8712-621069c03f73"",
+                    ""id"": ""22965720-16ef-4cc3-bdf9-69dd35c42af4"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -66,43 +48,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
-                    ""id"": ""46118b7c-2a15-42ef-9230-aba0649d8896"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Ability1"",
-                    ""type"": ""Button"",
-                    ""id"": ""1ca302d8-e345-4219-ab58-936bd488ca76"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Ability2"",
-                    ""type"": ""Button"",
-                    ""id"": ""c4f2e66e-bfd5-4518-82ef-43c1148062bc"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Ability3"",
-                    ""type"": ""Button"",
-                    ""id"": ""895e95d9-12ab-4610-ac67-adffea8c595b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Ability4"",
-                    ""type"": ""Button"",
-                    ""id"": ""80b2eba3-8424-4254-9f8b-f1ba1a36cb26"",
+                    ""id"": ""8a25714b-5d75-4b6b-8423-e73fa5fedf68"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -112,29 +58,18 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""7aa2d204-bc04-42c3-9b1b-f3ea8cc3ed85"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""74cd14a2-e811-408a-ab8b-bebceb3b8482"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Power"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c0c9885a-70f7-4468-b9b8-f4a1c7e5bb53"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Speed"",
+                    ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""WASD"",
-                    ""id"": ""dce59d4f-5deb-474c-bd05-ebb322b3ef1b"",
+                    ""id"": ""2177ffb0-abce-4739-9d2c-bf5c7d2dc852"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -145,7 +80,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""b2b899a4-e9d3-4bbd-b4b4-3d0f6973502d"",
+                    ""id"": ""8f781002-2c5e-4cfe-bb65-e38a8630ae06"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -156,7 +91,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""4221578b-a4fd-40dc-89bb-a751101c2907"",
+                    ""id"": ""b9bbba07-ca6a-4de4-949d-2c72e07d6706"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -167,7 +102,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""a81fefdf-56ae-49cd-88a4-90c0083a911f"",
+                    ""id"": ""dff0472c-e279-4ad2-91ce-a1d80608b7d1"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -178,7 +113,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""a4a3f020-bbd2-49f4-b2e8-5638e809a7af"",
+                    ""id"": ""0df41557-3afc-4fbb-afb0-2ff98d5ade0b"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -189,67 +124,12 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b7218d40-fefd-43f8-9933-a81e2c964bb5"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1e380c5f-5dbd-4188-a125-c2105fa32bd9"",
+                    ""id"": ""eaa6906f-e6cf-4976-a3e2-08de0e92a53a"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2bd289c1-d9d9-482b-bd55-87574ba9410b"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ability1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""52ebcdfd-dd69-4bd3-b250-548c03757a60"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ability2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f490f496-c598-4092-8f17-f6d70e4e7aaf"",
-                    ""path"": ""<Keyboard>/3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ability3"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7fb5e380-69fb-4452-9722-86dc43527d6d"",
-                    ""path"": ""<Keyboard>/4"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ability4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -260,15 +140,9 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Power = m_Player.FindAction("Power", throwIfNotFound: true);
-        m_Player_Speed = m_Player.FindAction("Speed", throwIfNotFound: true);
-        m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_Ability1 = m_Player.FindAction("Ability1", throwIfNotFound: true);
-        m_Player_Ability2 = m_Player.FindAction("Ability2", throwIfNotFound: true);
-        m_Player_Ability3 = m_Player.FindAction("Ability3", throwIfNotFound: true);
-        m_Player_Ability4 = m_Player.FindAction("Ability4", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -328,28 +202,16 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Power;
-    private readonly InputAction m_Player_Speed;
-    private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_Ability1;
-    private readonly InputAction m_Player_Ability2;
-    private readonly InputAction m_Player_Ability3;
-    private readonly InputAction m_Player_Ability4;
     public struct PlayerActions
     {
         private @GameInputs m_Wrapper;
         public PlayerActions(@GameInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Power => m_Wrapper.m_Player_Power;
-        public InputAction @Speed => m_Wrapper.m_Player_Speed;
-        public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @Ability1 => m_Wrapper.m_Player_Ability1;
-        public InputAction @Ability2 => m_Wrapper.m_Player_Ability2;
-        public InputAction @Ability3 => m_Wrapper.m_Player_Ability3;
-        public InputAction @Ability4 => m_Wrapper.m_Player_Ability4;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -359,78 +221,36 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Power.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
-                @Power.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
-                @Power.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
-                @Speed.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpeed;
-                @Speed.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpeed;
-                @Speed.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpeed;
-                @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Ability1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility1;
-                @Ability1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility1;
-                @Ability1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility1;
-                @Ability2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
-                @Ability2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
-                @Ability2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
-                @Ability3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility3;
-                @Ability3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility3;
-                @Ability3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility3;
-                @Ability4.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility4;
-                @Ability4.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility4;
-                @Ability4.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility4;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Power.started += instance.OnPower;
-                @Power.performed += instance.OnPower;
-                @Power.canceled += instance.OnPower;
-                @Speed.started += instance.OnSpeed;
-                @Speed.performed += instance.OnSpeed;
-                @Speed.canceled += instance.OnSpeed;
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Ability1.started += instance.OnAbility1;
-                @Ability1.performed += instance.OnAbility1;
-                @Ability1.canceled += instance.OnAbility1;
-                @Ability2.started += instance.OnAbility2;
-                @Ability2.performed += instance.OnAbility2;
-                @Ability2.canceled += instance.OnAbility2;
-                @Ability3.started += instance.OnAbility3;
-                @Ability3.performed += instance.OnAbility3;
-                @Ability3.canceled += instance.OnAbility3;
-                @Ability4.started += instance.OnAbility4;
-                @Ability4.performed += instance.OnAbility4;
-                @Ability4.canceled += instance.OnAbility4;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnPower(InputAction.CallbackContext context);
-        void OnSpeed(InputAction.CallbackContext context);
-        void OnMovement(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnAbility1(InputAction.CallbackContext context);
-        void OnAbility2(InputAction.CallbackContext context);
-        void OnAbility3(InputAction.CallbackContext context);
-        void OnAbility4(InputAction.CallbackContext context);
     }
 }

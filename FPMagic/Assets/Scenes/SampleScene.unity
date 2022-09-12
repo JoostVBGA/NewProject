@@ -843,10 +843,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  gravity: -0.1
+  gravity: -9.81
   jumpHeight: 2.4
   Ground: {fileID: 940697416}
-  distanceToGround: 0.4
+  distanceToGround: 11.22
   groundMask:
     serializedVersion: 2
     m_Bits: 8

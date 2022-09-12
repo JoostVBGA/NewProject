@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
     {
         if (controls.Player.Jump.triggered)
         {
+            Debug.Log("Jumping");
+
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }

@@ -1,0 +1,54 @@
+{
+    "name": "GameInputs",
+    "maps": [
+        {
+            "name": "FightingState",
+            "id": "33d414f1-9aff-4c3c-92a1-371c2f5f3b6c",
+            "actions": [
+                {
+                    "name": "Power",
+                    "type": "Button",
+                    "id": "a212c469-504f-4726-83f2-7d3f12cb212f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Speed",
+                    "type": "Button",
+                    "id": "b2c08218-d5ac-43e8-b868-e2b0d6c67962",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7aa2d204-bc04-42c3-9b1b-f3ea8cc3ed85",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Power",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c0c9885a-70f7-4468-b9b8-f4a1c7e5bb53",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Speed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

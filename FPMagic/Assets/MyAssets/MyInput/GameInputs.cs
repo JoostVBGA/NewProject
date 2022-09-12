@@ -53,6 +53,69 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MagicPower"",
+                    ""type"": ""Button"",
+                    ""id"": ""e7c585d4-19a7-4a65-ae69-4c6e8127e729"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MagicSpeed"",
+                    ""type"": ""Button"",
+                    ""id"": ""7099fbdd-9db3-4158-a2e7-625ce119a6f4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StartMagic"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e0c00b9-f2df-4174-af6e-0a72ff156038"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Opt1"",
+                    ""type"": ""Button"",
+                    ""id"": ""fcf001f3-0449-4bc8-8130-714f27719bb4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Opt2"",
+                    ""type"": ""Button"",
+                    ""id"": ""82f6ccd4-e24b-488a-b7a1-1b42b43944f1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseStored"",
+                    ""type"": ""Button"",
+                    ""id"": ""85c89c44-116f-4b16-9a45-3900295cdafd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Store"",
+                    ""type"": ""Button"",
+                    ""id"": ""8469c202-a4a5-4b2d-8e08-1d86aa6a3747"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +195,83 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6303c182-5dc5-463e-942c-793ba61ca799"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MagicPower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e4e999a-64d1-4076-ac1c-aef454c800d2"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MagicSpeed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa856748-6315-4de2-bbf6-ede56fe62b8d"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartMagic"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a15034f6-160b-4003-9742-b0f6643464d7"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Opt1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc9a107d-3717-4cad-a8f5-afb4473b6f03"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Opt2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd28b5f8-5c74-4932-8e49-bf59ef566950"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseStored"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58773956-75d0-4425-bdee-b57b9283e437"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Store"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +283,13 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_MagicPower = m_Player.FindAction("MagicPower", throwIfNotFound: true);
+        m_Player_MagicSpeed = m_Player.FindAction("MagicSpeed", throwIfNotFound: true);
+        m_Player_StartMagic = m_Player.FindAction("StartMagic", throwIfNotFound: true);
+        m_Player_Opt1 = m_Player.FindAction("Opt1", throwIfNotFound: true);
+        m_Player_Opt2 = m_Player.FindAction("Opt2", throwIfNotFound: true);
+        m_Player_UseStored = m_Player.FindAction("UseStored", throwIfNotFound: true);
+        m_Player_Store = m_Player.FindAction("Store", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -205,6 +352,13 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_MagicPower;
+    private readonly InputAction m_Player_MagicSpeed;
+    private readonly InputAction m_Player_StartMagic;
+    private readonly InputAction m_Player_Opt1;
+    private readonly InputAction m_Player_Opt2;
+    private readonly InputAction m_Player_UseStored;
+    private readonly InputAction m_Player_Store;
     public struct PlayerActions
     {
         private @GameInputs m_Wrapper;
@@ -212,6 +366,13 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @MagicPower => m_Wrapper.m_Player_MagicPower;
+        public InputAction @MagicSpeed => m_Wrapper.m_Player_MagicSpeed;
+        public InputAction @StartMagic => m_Wrapper.m_Player_StartMagic;
+        public InputAction @Opt1 => m_Wrapper.m_Player_Opt1;
+        public InputAction @Opt2 => m_Wrapper.m_Player_Opt2;
+        public InputAction @UseStored => m_Wrapper.m_Player_UseStored;
+        public InputAction @Store => m_Wrapper.m_Player_Store;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -230,6 +391,27 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @MagicPower.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMagicPower;
+                @MagicPower.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMagicPower;
+                @MagicPower.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMagicPower;
+                @MagicSpeed.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMagicSpeed;
+                @MagicSpeed.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMagicSpeed;
+                @MagicSpeed.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMagicSpeed;
+                @StartMagic.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartMagic;
+                @StartMagic.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartMagic;
+                @StartMagic.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartMagic;
+                @Opt1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpt1;
+                @Opt1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpt1;
+                @Opt1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpt1;
+                @Opt2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpt2;
+                @Opt2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpt2;
+                @Opt2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpt2;
+                @UseStored.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseStored;
+                @UseStored.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseStored;
+                @UseStored.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseStored;
+                @Store.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStore;
+                @Store.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStore;
+                @Store.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStore;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -243,6 +425,27 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @MagicPower.started += instance.OnMagicPower;
+                @MagicPower.performed += instance.OnMagicPower;
+                @MagicPower.canceled += instance.OnMagicPower;
+                @MagicSpeed.started += instance.OnMagicSpeed;
+                @MagicSpeed.performed += instance.OnMagicSpeed;
+                @MagicSpeed.canceled += instance.OnMagicSpeed;
+                @StartMagic.started += instance.OnStartMagic;
+                @StartMagic.performed += instance.OnStartMagic;
+                @StartMagic.canceled += instance.OnStartMagic;
+                @Opt1.started += instance.OnOpt1;
+                @Opt1.performed += instance.OnOpt1;
+                @Opt1.canceled += instance.OnOpt1;
+                @Opt2.started += instance.OnOpt2;
+                @Opt2.performed += instance.OnOpt2;
+                @Opt2.canceled += instance.OnOpt2;
+                @UseStored.started += instance.OnUseStored;
+                @UseStored.performed += instance.OnUseStored;
+                @UseStored.canceled += instance.OnUseStored;
+                @Store.started += instance.OnStore;
+                @Store.performed += instance.OnStore;
+                @Store.canceled += instance.OnStore;
             }
         }
     }
@@ -252,5 +455,12 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnMagicPower(InputAction.CallbackContext context);
+        void OnMagicSpeed(InputAction.CallbackContext context);
+        void OnStartMagic(InputAction.CallbackContext context);
+        void OnOpt1(InputAction.CallbackContext context);
+        void OnOpt2(InputAction.CallbackContext context);
+        void OnUseStored(InputAction.CallbackContext context);
+        void OnStore(InputAction.CallbackContext context);
     }
 }

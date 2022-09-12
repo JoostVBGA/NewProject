@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 6f;
 
+    public float moveSpeedLimit = 20;
+
     private Vector3 velocity;
 
     public float gravity = -9.81f;
@@ -38,6 +40,7 @@ public class PlayerController : MonoBehaviour
         Grav();
         PlayerMovement();
         Jump();
+        Ability();
     }
 
     private void Grav()
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
         if(isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = -1f;
         }
 
         velocity.y += gravity * Time.deltaTime;
@@ -67,9 +70,15 @@ public class PlayerController : MonoBehaviour
     {
         if (controls.Player.Jump.triggered && isGrounded)
         {
-            Debug.Log("Jumping");
-
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+    }
+
+    private void Ability()
+    {
+        if (controls.Player.StartMagic.triggered)
+        {
+
         }
     }
 

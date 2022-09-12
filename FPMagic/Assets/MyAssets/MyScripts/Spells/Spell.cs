@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Spell : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public SpellScriptableObject SpellToCast;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        transform.Translate(transform.Vector3.forward * SpellToCast.Speed * Time.deltaTime);
     }
 }

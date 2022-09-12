@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellScriptableObject : MonoBehaviour
+[CreateAssetMenu(fileName = "New Spell",menuName = "Spells" )]
+public class SpellScriptableObject : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float ManaCost = 5f;
+    public float LifeTime = 2f;
+    public float Speed = 15f;
+    public float DamageAmount = 10f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

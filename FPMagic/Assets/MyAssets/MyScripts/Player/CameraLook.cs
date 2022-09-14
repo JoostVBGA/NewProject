@@ -33,8 +33,8 @@ public class CameraLook : MonoBehaviour
     {
         mouseLook = controls.Player.Look.ReadValue<Vector2>();
 
-        float mouseX = mouseLook.x * mouseSensitivity * Time.deltaTime;
-        float mouseY = mouseLook.y * mouseSensitivity * Time.deltaTime;
+        float mouseX = mouseLook.x * mouseSensitivity;
+        float mouseY = mouseLook.y * mouseSensitivity;
 
         XRotation -= mouseY;
         XRotation = Mathf.Clamp(XRotation, -90f, 90);

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(SphereCollider))]
+
+[RequireComponent(typeof(Rigidbody))]
 public class Spell : MonoBehaviour
 {
 
@@ -14,53 +17,65 @@ public class Spell : MonoBehaviour
 
     public float currentSpellPower;
 
-    public float startSpellSpeed;
+    public float accResetTimeSeconds { get; private set; } = 0.5f;
 
-    public float startSpellPower;
+    private SphereCollider myCollider;
 
-    public float maxSpellPower;
+    private Rigidbody myRigidbody;
 
-    public float maxSpellSpeed;
+    private void Awake()
+    {
+        myCollider = GetComponent<SphereCollider>();
+        myCollider.isTrigger = true;
+        myCollider.radius = SpellToCast.SpellRadius;
 
-    public float incrementSpellPower;
+        myRigidbody = GetComponent<Rigidbody>();
+        myRigidbody.isKinematic = true;
 
-    public float incrementSpellSpeed;
+        Destroy(this.gameObject, SpellToCast.LifeTime);
+    }
 
     private void Update()
     {
-        if (!controls.Player.UseMagic.triggered)
-        {
-            transform.Translate(transform.Vector3.forward * currentSpellSpeed * Time.deltaTime);
+        if (SpellToCast.Speed > 0) 
+        { 
+            transform.Translate(transform.forward * currentSpellSpeed * Time.deltaTime); 
         }
-
     }
 
     private void SpellCrafting()
     {
-        startSpellPower = currentSpellPower;
+        //currentSpellPower = SpellToCast.StartPower;
 
-        startSpellSpeed = currentSpellSpeed;
+        //currentSpellSpeed = SpellToCast.StartSpeed;
 
         if (controls.Player.MagicPower.triggered)
         {
 
-            if (currentSpellPower >= maxSpellPower)
+            if (currentSpellPower >= SpellToCast.MaxPower)
             {
                 return;
             }
 
-            currentSpellPower + incrementSpellPower = currentSpellPower;
+            //currentSpellPower + SpellToCast.IncrementPower = currentSpellPower;
         }
 
         if (controls.Player.MagicSpeed.triggered)
         {
 
-            if (currentSpellPower >= maxSpellPower)
+            if (currentSpellPower >= SpellToCast.MaxPower)
             {
                 return;
             }
 
-            currentSpellSpeed + incrementSpellSpeed = currentSpellSpeed;
+            //new currentSpellSpeed = (currentSpellSpeed + SpellToCast.IncrementSpeed);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //apply effects and damage 
+
+        //Destroy(this.gameObject);
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMagicSystem : MonoBehaviour
 {
+    [SerializeField] private Spell spellToCast;
+
     [SerializeField] private float maxMana = 100f;
 
     [SerializeField] private float currentMana;
@@ -24,6 +26,11 @@ public class PlayerMagicSystem : MonoBehaviour
     private void Update()
     {
         Ability();
+
+        if (controls.Player.UseMagic.triggered)
+        {
+            castSpell();
+        }
     }
     private void Ability()
     {
@@ -34,6 +41,8 @@ public class PlayerMagicSystem : MonoBehaviour
                 castingMagic = true;
                 Debug.Log("CraftingMagic");
                 craftSpell();
+                //SpellCraftUI/Animation
+
             }
             else
             {
@@ -45,8 +54,22 @@ public class PlayerMagicSystem : MonoBehaviour
 
     void craftSpell()
     {
+        if (controls.Player.Opt1.triggered)
+        {
 
+        }
+
+        if (controls.Player.Opt2.triggered)
+        {
+
+        }
     }
+
+    void castSpell()
+    {
+        Instantiate(spellToCast, castPoint.position, castPoint.rotation);
+    }
+
     private void OnEnable()
     {
         controls.Enable();

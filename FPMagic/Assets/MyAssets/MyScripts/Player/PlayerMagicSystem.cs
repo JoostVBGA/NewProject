@@ -14,7 +14,15 @@ public class PlayerMagicSystem : MonoBehaviour
 
     [SerializeField] private Transform castPoint;
 
-    private bool castingMagic = false;
+    public float currentSpellSpeed;
+
+    public float currentSpellPower;
+
+    public float FinalPower = 1f;
+
+    public float FinalSpeed = 1f;
+
+    private bool isCastingMagic = false;
 
     private GameInputs controls;
 
@@ -27,44 +35,30 @@ public class PlayerMagicSystem : MonoBehaviour
     {
         Ability();
 
-        if (controls.Player.UseMagic.triggered)
+        if (controls.Player.UseMagic.triggered && isCastingMagic)
         {
             castSpell();
+            isCastingMagic = false;
         }
     }
     private void Ability()
     {
         if (controls.Player.StartMagic.triggered)
         {
-            if (!castingMagic) 
+            if (!isCastingMagic) 
             {
-                castingMagic = true;
+                isCastingMagic = true;
                 Debug.Log("CraftingMagic");
-                craftSpell();
                 //SpellCraftUI/Animation
 
             }
             else
             {
-                castingMagic = false;
+                isCastingMagic = false;
                 Debug.Log("NotCraftingMagic");
             }
         }
     }
-
-    void craftSpell()
-    {
-        if (controls.Player.Opt1.triggered)
-        {
-
-        }
-
-        if (controls.Player.Opt2.triggered)
-        {
-
-        }
-    }
-
     void castSpell()
     {
         Instantiate(spellToCast, castPoint.position, castPoint.rotation);

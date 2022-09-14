@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6493674530598403394}
   - component: {fileID: 6493674530598403389}
   - component: {fileID: 6493674530598403388}
-  - component: {fileID: 6493674530598403395}
   m_Layer: 0
   m_Name: FireBallGraphics
   m_TagString: Untagged
@@ -27,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6493674530598403393}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.6635747, y: 0.62940323, z: 5.008625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6493674530598403395
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6493674530598403393}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6493674530935570970
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6493674530935570970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6635747, y: -0.62940323, z: -5.008625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -176,9 +162,3 @@ MonoBehaviour:
   SpellToCast: {fileID: 11400000, guid: e06ed7625453e044f88ed1e4679048b5, type: 2}
   currentSpellSpeed: 0
   currentSpellPower: 0
-  startSpellSpeed: 0
-  startSpellPower: 0
-  maxSpellPower: 0
-  maxSpellSpeed: 0
-  incrementSpellPower: 0
-  incrementSpellSpeed: 0

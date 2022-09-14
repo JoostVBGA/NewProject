@@ -13,6 +13,8 @@ public class Spell : MonoBehaviour
 
     public SpellScriptableObject SpellToCast;
 
+    public PlayerMagicSystem SpellCraft;
+
     public float currentSpellSpeed;
 
     public float currentSpellPower;
@@ -22,6 +24,8 @@ public class Spell : MonoBehaviour
     private SphereCollider myCollider;
 
     private Rigidbody myRigidbody;
+
+    private Camera mainCamera;
 
     private void Awake()
     {
@@ -33,42 +37,19 @@ public class Spell : MonoBehaviour
         myRigidbody.isKinematic = true;
 
         Destroy(this.gameObject, SpellToCast.LifeTime);
+
+        mainCamera = Camera.main;
+
+        //currentSpellSpeed = PlayerMagicSystem.FinalSpeed;
+
+        Destroy(this.gameObject, SpellToCast.LifeTime);
     }
 
     private void Update()
     {
-        if (SpellToCast.Speed > 0) 
-        { 
+        if (SpellToCast.StartSpeed > 0) 
+        {
             transform.Translate(transform.forward * currentSpellSpeed * Time.deltaTime); 
-        }
-    }
-
-    private void SpellCrafting()
-    {
-        //currentSpellPower = SpellToCast.StartPower;
-
-        //currentSpellSpeed = SpellToCast.StartSpeed;
-
-        if (controls.Player.MagicPower.triggered)
-        {
-
-            if (currentSpellPower >= SpellToCast.MaxPower)
-            {
-                return;
-            }
-
-            //currentSpellPower + SpellToCast.IncrementPower = currentSpellPower;
-        }
-
-        if (controls.Player.MagicSpeed.triggered)
-        {
-
-            if (currentSpellPower >= SpellToCast.MaxPower)
-            {
-                return;
-            }
-
-            //new currentSpellSpeed = (currentSpellSpeed + SpellToCast.IncrementSpeed);
         }
     }
 
@@ -76,6 +57,6 @@ public class Spell : MonoBehaviour
     {
         //apply effects and damage 
 
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
 }

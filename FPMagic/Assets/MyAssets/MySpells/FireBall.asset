@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: FireBall
   m_EditorClassIdentifier: 
   ManaCost: 5
-  LifeTime: 1000
-  Speed: 9.82
-  Power: 10
+  LifeTime: 10
   MaxSpeed: 5
   MaxPower: 80
-  SpellRadius: 0.5
-  StartSpeed: 1
+  SpellRadius: 0.2
+  StartSpeed: 10
   StartPower: 1
   IncrementPower: 0.2
   IncrementSpeed: 0.2

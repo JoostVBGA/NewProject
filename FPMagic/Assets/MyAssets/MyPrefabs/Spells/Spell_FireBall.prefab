@@ -159,6 +159,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9193109934a8c1f4f9de235f56077880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1360757559099367221, guid: 52d1c11824126b34e870b9e7fb7a9886, type: 3}
   SpellToCast: {fileID: 11400000, guid: e06ed7625453e044f88ed1e4679048b5, type: 2}
-  currentSpellSpeed: 0
-  currentSpellPower: 0

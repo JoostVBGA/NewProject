@@ -5,26 +5,23 @@ using UnityEngine;
 public class PlayerMagicSystem : MonoBehaviour
 {
     [SerializeField] private Spell spellToCast;
-
-    [SerializeField] private float maxMana = 100f;
-
-    [SerializeField] private float currentMana;
-
-    [SerializeField] private float manaRechargeRate = 2f;
-
     [SerializeField] private Transform castPoint;
+    private bool isCastingMagic = false;
+    private GameInputs controls;
+    //[SerializeField] private float maxMana = 100f;
 
-    public float currentSpellSpeed;
+    //[SerializeField] private float currentMana;
 
-    public float currentSpellPower;
+    //[SerializeField] private float manaRechargeRate = 2f;
+
+    private float currentSpeed;
+
+    private float currentPower;
 
     public float FinalPower = 1f;
 
     public float FinalSpeed = 1f;
 
-    private bool isCastingMagic = false;
-
-    private GameInputs controls;
 
     private void Awake()
     {
@@ -34,12 +31,7 @@ public class PlayerMagicSystem : MonoBehaviour
     private void Update()
     {
         Ability();
-
-        if (controls.Player.UseMagic.triggered && isCastingMagic)
-        {
-            castSpell();
-            isCastingMagic = false;
-        }
+        Cast();
     }
     private void Ability()
     {
@@ -59,9 +51,14 @@ public class PlayerMagicSystem : MonoBehaviour
             }
         }
     }
-    void castSpell()
+
+    private void Cast()
     {
-        Instantiate(spellToCast, castPoint.position, castPoint.rotation);
+        if (controls.Player.UseMagic.triggered && isCastingMagic)
+        {
+            Instantiate(spellToCast, castPoint.position, castPoint.rotation);
+            isCastingMagic = false;
+        }
     }
 
     private void OnEnable()

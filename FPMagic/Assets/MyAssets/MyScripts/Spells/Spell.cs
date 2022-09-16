@@ -8,24 +8,24 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class Spell : MonoBehaviour
 {
+    PlayerMagicSystem playerMagicSystem;
 
-    private GameInputs controls;
+    [SerializeField] GameObject Player;
 
     public SpellScriptableObject SpellToCast;
 
-    public PlayerMagicSystem SpellCraft;
-
-    public float currentSpellSpeed;
-
-    public float currentSpellPower;
-
-    public float accResetTimeSeconds { get; private set; } = 0.5f;
+    private GameInputs controls;
 
     private SphereCollider myCollider;
 
     private Rigidbody myRigidbody;
 
     private Camera mainCamera;
+
+    private float finalSpeed;
+
+    private float finalPower;
+    public float accResetTimeSeconds { get; private set; } = 0.5f;
 
     private void Awake()
     {
@@ -40,16 +40,20 @@ public class Spell : MonoBehaviour
 
         mainCamera = Camera.main;
 
-        //currentSpellSpeed = PlayerMagicSystem.FinalSpeed;
+        playerMagicSystem = Player.GetComponent<PlayerMagicSystem>();
 
-        Destroy(this.gameObject, SpellToCast.LifeTime);
+        finalSpeed = playerMagicSystem.FinalSpeed;
+
+        finalPower = playerMagicSystem.FinalPower;
+
+        Debug.Log(finalSpeed);
     }
 
     private void Update()
     {
         if (SpellToCast.StartSpeed > 0) 
         {
-            transform.Translate(transform.forward * currentSpellSpeed * Time.deltaTime); 
+            transform.Translate(transform.forward * finalSpeed * Time.deltaTime); 
         }
     }
 

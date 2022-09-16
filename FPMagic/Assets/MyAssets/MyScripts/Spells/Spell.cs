@@ -46,14 +46,13 @@ public class Spell : MonoBehaviour
 
         finalPower = playerMagicSystem.FinalPower;
 
-        Debug.Log(finalSpeed);
     }
 
     private void Update()
     {
         if (SpellToCast.StartSpeed > 0) 
         {
-            transform.Translate(transform.forward * finalSpeed * Time.deltaTime); 
+            transform.Translate(Vector3.forward * finalSpeed * Time.deltaTime); 
         }
     }
 

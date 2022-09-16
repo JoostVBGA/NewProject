@@ -50,6 +50,17 @@ public class PlayerMagicSystem : MonoBehaviour
                 Debug.Log("NotCraftingMagic");
             }
         }
+
+        if (controls.Player.Opt1.triggered && isCastingMagic)
+        {
+
+        }
+
+        if (controls.Player.Opt2.triggered && isCastingMagic)
+        {
+
+        }
+
     }
 
     private void Cast()

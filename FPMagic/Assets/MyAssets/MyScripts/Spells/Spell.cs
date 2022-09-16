@@ -42,9 +42,9 @@ public class Spell : MonoBehaviour
 
         playerMagicSystem = Player.GetComponent<PlayerMagicSystem>();
 
-        finalSpeed = playerMagicSystem.FinalSpeed;
+        finalSpeed = playerMagicSystem.CurrentSpeed;
 
-        finalPower = playerMagicSystem.FinalPower;
+        finalPower = playerMagicSystem.CurrentPower;
 
     }
 

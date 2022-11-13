@@ -19,10 +19,10 @@ public class PlayerMagicSystem : MonoBehaviour
 
     //[SerializeField] private float manaRechargeRate = 2f;
 
-    public float CurrentPower = 1f;
-
-    public float CurrentSpeed = 1f;
-
+    [SerializeField] public float CurrentPower;
+    [SerializeField] public float CurrentSpeed;
+    
+    
 
     private void Awake()
     {
@@ -56,13 +56,16 @@ public class PlayerMagicSystem : MonoBehaviour
         {
             spellToCast = spell1;
             Debug.Log("Spell1");
-            //CurrentSpeed = 
+            CurrentSpeed = spell1.SpellToCast.StartSpeed;
+            Debug.Log(CurrentSpeed);
         }
 
         if (controls.Player.Opt2.triggered && isCraftingMagic)
         {
             spellToCast = spell2;
-            Debug.Log("Spell1");
+            Debug.Log("Spell2");
+            CurrentSpeed = spell2.SpellToCast.StartSpeed;
+            Debug.Log(CurrentSpeed);
         }
 
     }

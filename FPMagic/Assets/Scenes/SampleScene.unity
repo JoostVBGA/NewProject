@@ -668,8 +668,17 @@ PrefabInstance:
         type: 3}
       propertyPath: spellToCast
       value: 
-      objectReference: {fileID: 1026777569789779183, guid: 646fdfc7168efb6408ec5c3d63c069d2,
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360757559099367113, guid: 52d1c11824126b34e870b9e7fb7a9886,
         type: 3}
+      propertyPath: CurrentPower
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360757559099367113, guid: 52d1c11824126b34e870b9e7fb7a9886,
+        type: 3}
+      propertyPath: CurrentSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1360757559099367220, guid: 52d1c11824126b34e870b9e7fb7a9886,
         type: 3}
       propertyPath: m_RootOrder

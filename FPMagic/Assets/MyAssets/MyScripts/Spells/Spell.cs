@@ -22,9 +22,9 @@ public class Spell : MonoBehaviour
 
     private Camera mainCamera;
 
-    private float finalSpeed;
+    [SerializeField] private float finalSpeed;
 
-    private float finalPower;
+    [SerializeField] private float finalPower;
     public float accResetTimeSeconds { get; private set; } = 0.5f;
 
     private void Awake()
@@ -40,9 +40,11 @@ public class Spell : MonoBehaviour
 
         mainCamera = Camera.main;
 
-        playerMagicSystem = Player.GetComponent<PlayerMagicSystem>();
+        playerMagicSystem = GameObject.Find("PlayerEmpty").GetComponent<PlayerMagicSystem>();
 
+        Debug.Log(playerMagicSystem.CurrentSpeed);
         finalSpeed = playerMagicSystem.CurrentSpeed;
+     
 
         finalPower = playerMagicSystem.CurrentPower;
 
@@ -58,7 +60,6 @@ public class Spell : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //apply effects and damage 
 
         Destroy(this.gameObject);
     }

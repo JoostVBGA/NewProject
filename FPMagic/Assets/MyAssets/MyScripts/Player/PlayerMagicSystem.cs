@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMagicSystem : MonoBehaviour
 {
+
     [SerializeField] private Spell spell1;
     [SerializeField] private Spell spell2;
     [SerializeField] private Spell spellToCast;
@@ -55,8 +56,7 @@ public class PlayerMagicSystem : MonoBehaviour
         {
             spellToCast = spell1;
             Debug.Log("Spell1");
-            //spellInfo = spellToCast.GetComponent<Spell>();
-            //CurrentSpeed = spellInfo.StartSpeed 
+            //CurrentSpeed = 
         }
 
         if (controls.Player.Opt2.triggered && isCraftingMagic)

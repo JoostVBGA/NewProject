@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(SphereCollider))]
+
 [RequireComponent(typeof(Rigidbody))]
 public class Spell : MonoBehaviour
 {
@@ -58,12 +59,7 @@ public class Spell : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //apply effects and damage 
-        if (!other.gameObject.CompareTag("Enemy"))
-        {
-            HealthComponent enemyHealth = GetComponent<HealthComponent>();
-            enemyHealth.TakeDamage(finalPower);
-        }
-        Destroy(this.gameObject);
 
+        Destroy(this.gameObject);
     }
 }

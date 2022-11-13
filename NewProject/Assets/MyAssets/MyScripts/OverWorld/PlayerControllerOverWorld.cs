@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SC_PlayerControllerOverWorld : MonoBehaviour
+public class PlayerControllerOverWorld : MonoBehaviour
 {
     //input fields
     private PlayerControls playerControls;

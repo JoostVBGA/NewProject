@@ -7,6 +7,9 @@ public class PlayerMagicSystem : MonoBehaviour
 
     [SerializeField] private Spell spell1;
     [SerializeField] private Spell spell2;
+    [SerializeField] private Spell spell3;
+    [SerializeField] private Spell spell4;
+    [SerializeField] private Spell spell5;
     [SerializeField] private Spell spellToCast;
     [SerializeField] private Transform castPoint;
 
@@ -57,7 +60,8 @@ public class PlayerMagicSystem : MonoBehaviour
             spellToCast = spell1;
             Debug.Log("Spell1");
             CurrentSpeed = spell1.SpellToCast.StartSpeed;
-            Debug.Log(CurrentSpeed);
+            CurrentPower = spell1.SpellToCast.StartPower;
+            Debug.Log(CurrentPower);
         }
 
         if (controls.Player.Opt2.triggered && isCraftingMagic)
@@ -65,7 +69,8 @@ public class PlayerMagicSystem : MonoBehaviour
             spellToCast = spell2;
             Debug.Log("Spell2");
             CurrentSpeed = spell2.SpellToCast.StartSpeed;
-            Debug.Log(CurrentSpeed);
+            CurrentPower = spell2.SpellToCast.StartPower;
+            Debug.Log(CurrentPower);
         }
 
     }

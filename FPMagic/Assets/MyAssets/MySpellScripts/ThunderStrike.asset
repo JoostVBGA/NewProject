@@ -18,6 +18,6 @@ MonoBehaviour:
   MaxPower: 80
   SpellRadius: 0.5
   StartSpeed: 25
-  StartPower: 1
+  StartPower: 3
   IncrementPower: 0.2
   IncrementSpeed: 0.2

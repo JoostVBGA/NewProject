@@ -42,10 +42,7 @@ public class Spell : MonoBehaviour
 
         playerMagicSystem = GameObject.Find("PlayerEmpty").GetComponent<PlayerMagicSystem>();
 
-        Debug.Log(playerMagicSystem.CurrentSpeed);
         finalSpeed = playerMagicSystem.CurrentSpeed;
-     
-
         finalPower = playerMagicSystem.CurrentPower;
 
     }
@@ -60,6 +57,12 @@ public class Spell : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            CS_HealthComponent enemyHealth = other.GetComponent<CS_HealthComponent>();
+            enemyHealth.TakeDamage(finalPower);
+        }
+            
 
         Destroy(this.gameObject);
     }

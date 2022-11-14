@@ -26,6 +26,7 @@ public class PlayerMagicSystem : MonoBehaviour
     [Header("PublicInfo")]
     [SerializeField] public float CurrentPower;
     [SerializeField] public float CurrentSpeed;
+    [SerializeField] public float CurrentSize = 1f;
 
     private void Awake()
     {

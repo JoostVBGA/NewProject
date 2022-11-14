@@ -23,8 +23,8 @@ public class Spell : MonoBehaviour
     private Camera mainCamera;
 
     [SerializeField] private float finalSpeed;
-
     [SerializeField] private float finalPower;
+    [SerializeField] private float finalSize;
     public float accResetTimeSeconds { get; private set; } = 0.5f;
 
     private void Awake()
@@ -44,6 +44,7 @@ public class Spell : MonoBehaviour
 
         finalSpeed = playerMagicSystem.CurrentSpeed;
         finalPower = playerMagicSystem.CurrentPower;
+        transform.localScale = transform.localScale * playerMagicSystem.CurrentSize; ;
 
     }
 

@@ -16,7 +16,6 @@ public class CS_HealthComponent : MonoBehaviour
     public void TakeDamage(float damageToApply)
     {
         currentHealth -= damageToApply;
-        Debug.Log(currentHealth);
         if (currentHealth <= 0) Destroy(this.gameObject);
     }
 }

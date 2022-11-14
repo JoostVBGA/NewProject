@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4adfd4a809a839949b33d2448cab0293, type: 3}
   m_Name: FireBall
   m_EditorClassIdentifier: 
-  ManaCost: 5
+  ManaCost: 12
   LifeTime: 10
   MaxSpeed: 5
   MaxPower: 80

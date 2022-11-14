@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4adfd4a809a839949b33d2448cab0293, type: 3}
   m_Name: ThunderStrike
   m_EditorClassIdentifier: 
-  ManaCost: 5
+  ManaCost: 18
   LifeTime: 2
   MaxSpeed: 50
   MaxPower: 80

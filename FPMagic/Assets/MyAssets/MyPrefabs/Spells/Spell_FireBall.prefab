@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8141928081893876343}
   m_Layer: 0
   m_Name: Spell_FireBall
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,3 +161,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1360757559099367221, guid: 52d1c11824126b34e870b9e7fb7a9886, type: 3}
   SpellToCast: {fileID: 11400000, guid: e06ed7625453e044f88ed1e4679048b5, type: 2}
+  finalSpeed: 0
+  finalPower: 0

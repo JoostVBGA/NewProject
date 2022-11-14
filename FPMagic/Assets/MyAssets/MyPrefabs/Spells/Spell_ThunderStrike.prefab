@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1026777569789779183}
   m_Layer: 0
   m_Name: Spell_ThunderStrike
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,6 +78,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1360757559099367221, guid: 52d1c11824126b34e870b9e7fb7a9886, type: 3}
   SpellToCast: {fileID: 11400000, guid: 0739bd6db3ed6b344b008d85926e0caf, type: 2}
+  finalSpeed: 0
+  finalPower: 0
 --- !u!1 &7103375146326273209
 GameObject:
   m_ObjectHideFlags: 0

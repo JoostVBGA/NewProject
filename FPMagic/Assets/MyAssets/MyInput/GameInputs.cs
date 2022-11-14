@@ -55,16 +55,25 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MagicPower"",
+                    ""name"": ""LeftMousePress"",
                     ""type"": ""Button"",
                     ""id"": ""e7c585d4-19a7-4a65-ae69-4c6e8127e729"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftMouseRelease"",
+                    ""type"": ""Button"",
+                    ""id"": ""df249dab-908f-4bb3-b413-574c62ccd825"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MagicSpeed"",
+                    ""name"": ""RightMouse"",
                     ""type"": ""Button"",
                     ""id"": ""7099fbdd-9db3-4158-a2e7-625ce119a6f4"",
                     ""expectedControlType"": ""Button"",
@@ -112,6 +121,15 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""name"": ""Store"",
                     ""type"": ""Button"",
                     ""id"": ""8469c202-a4a5-4b2d-8e08-1d86aa6a3747"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MiddleMouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""bcce07ad-8095-4538-ad9d-9b267a5ff9d9"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -203,7 +221,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MagicPower"",
+                    ""action"": ""LeftMousePress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -214,7 +232,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MagicSpeed"",
+                    ""action"": ""RightMouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -272,6 +290,28 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""action"": ""Store"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da9fc73f-fb37-4180-b249-adb3b468967b"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MiddleMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2167c91-7373-49f0-898b-2e92d3bb67e3"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftMouseRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -283,13 +323,15 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_MagicPower = m_Player.FindAction("MagicPower", throwIfNotFound: true);
-        m_Player_MagicSpeed = m_Player.FindAction("MagicSpeed", throwIfNotFound: true);
+        m_Player_LeftMousePress = m_Player.FindAction("LeftMousePress", throwIfNotFound: true);
+        m_Player_LeftMouseRelease = m_Player.FindAction("LeftMouseRelease", throwIfNotFound: true);
+        m_Player_RightMouse = m_Player.FindAction("RightMouse", throwIfNotFound: true);
         m_Player_StartMagic = m_Player.FindAction("StartMagic", throwIfNotFound: true);
         m_Player_Opt1 = m_Player.FindAction("Opt1", throwIfNotFound: true);
         m_Player_Opt2 = m_Player.FindAction("Opt2", throwIfNotFound: true);
         m_Player_UseMagic = m_Player.FindAction("UseMagic", throwIfNotFound: true);
         m_Player_Store = m_Player.FindAction("Store", throwIfNotFound: true);
+        m_Player_MiddleMouse = m_Player.FindAction("MiddleMouse", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -352,13 +394,15 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_MagicPower;
-    private readonly InputAction m_Player_MagicSpeed;
+    private readonly InputAction m_Player_LeftMousePress;
+    private readonly InputAction m_Player_LeftMouseRelease;
+    private readonly InputAction m_Player_RightMouse;
     private readonly InputAction m_Player_StartMagic;
     private readonly InputAction m_Player_Opt1;
     private readonly InputAction m_Player_Opt2;
     private readonly InputAction m_Player_UseMagic;
     private readonly InputAction m_Player_Store;
+    private readonly InputAction m_Player_MiddleMouse;
     public struct PlayerActions
     {
         private @GameInputs m_Wrapper;
@@ -366,13 +410,15 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @MagicPower => m_Wrapper.m_Player_MagicPower;
-        public InputAction @MagicSpeed => m_Wrapper.m_Player_MagicSpeed;
+        public InputAction @LeftMousePress => m_Wrapper.m_Player_LeftMousePress;
+        public InputAction @LeftMouseRelease => m_Wrapper.m_Player_LeftMouseRelease;
+        public InputAction @RightMouse => m_Wrapper.m_Player_RightMouse;
         public InputAction @StartMagic => m_Wrapper.m_Player_StartMagic;
         public InputAction @Opt1 => m_Wrapper.m_Player_Opt1;
         public InputAction @Opt2 => m_Wrapper.m_Player_Opt2;
         public InputAction @UseMagic => m_Wrapper.m_Player_UseMagic;
         public InputAction @Store => m_Wrapper.m_Player_Store;
+        public InputAction @MiddleMouse => m_Wrapper.m_Player_MiddleMouse;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -391,12 +437,15 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @MagicPower.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMagicPower;
-                @MagicPower.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMagicPower;
-                @MagicPower.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMagicPower;
-                @MagicSpeed.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMagicSpeed;
-                @MagicSpeed.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMagicSpeed;
-                @MagicSpeed.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMagicSpeed;
+                @LeftMousePress.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftMousePress;
+                @LeftMousePress.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftMousePress;
+                @LeftMousePress.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftMousePress;
+                @LeftMouseRelease.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftMouseRelease;
+                @LeftMouseRelease.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftMouseRelease;
+                @LeftMouseRelease.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftMouseRelease;
+                @RightMouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightMouse;
+                @RightMouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightMouse;
+                @RightMouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightMouse;
                 @StartMagic.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartMagic;
                 @StartMagic.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartMagic;
                 @StartMagic.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartMagic;
@@ -412,6 +461,9 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @Store.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStore;
                 @Store.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStore;
                 @Store.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStore;
+                @MiddleMouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMiddleMouse;
+                @MiddleMouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMiddleMouse;
+                @MiddleMouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMiddleMouse;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -425,12 +477,15 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @MagicPower.started += instance.OnMagicPower;
-                @MagicPower.performed += instance.OnMagicPower;
-                @MagicPower.canceled += instance.OnMagicPower;
-                @MagicSpeed.started += instance.OnMagicSpeed;
-                @MagicSpeed.performed += instance.OnMagicSpeed;
-                @MagicSpeed.canceled += instance.OnMagicSpeed;
+                @LeftMousePress.started += instance.OnLeftMousePress;
+                @LeftMousePress.performed += instance.OnLeftMousePress;
+                @LeftMousePress.canceled += instance.OnLeftMousePress;
+                @LeftMouseRelease.started += instance.OnLeftMouseRelease;
+                @LeftMouseRelease.performed += instance.OnLeftMouseRelease;
+                @LeftMouseRelease.canceled += instance.OnLeftMouseRelease;
+                @RightMouse.started += instance.OnRightMouse;
+                @RightMouse.performed += instance.OnRightMouse;
+                @RightMouse.canceled += instance.OnRightMouse;
                 @StartMagic.started += instance.OnStartMagic;
                 @StartMagic.performed += instance.OnStartMagic;
                 @StartMagic.canceled += instance.OnStartMagic;
@@ -446,6 +501,9 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @Store.started += instance.OnStore;
                 @Store.performed += instance.OnStore;
                 @Store.canceled += instance.OnStore;
+                @MiddleMouse.started += instance.OnMiddleMouse;
+                @MiddleMouse.performed += instance.OnMiddleMouse;
+                @MiddleMouse.canceled += instance.OnMiddleMouse;
             }
         }
     }
@@ -455,12 +513,14 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnMagicPower(InputAction.CallbackContext context);
-        void OnMagicSpeed(InputAction.CallbackContext context);
+        void OnLeftMousePress(InputAction.CallbackContext context);
+        void OnLeftMouseRelease(InputAction.CallbackContext context);
+        void OnRightMouse(InputAction.CallbackContext context);
         void OnStartMagic(InputAction.CallbackContext context);
         void OnOpt1(InputAction.CallbackContext context);
         void OnOpt2(InputAction.CallbackContext context);
         void OnUseMagic(InputAction.CallbackContext context);
         void OnStore(InputAction.CallbackContext context);
+        void OnMiddleMouse(InputAction.CallbackContext context);
     }
 }

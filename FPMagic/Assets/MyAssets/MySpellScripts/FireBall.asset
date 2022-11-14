@@ -16,8 +16,10 @@ MonoBehaviour:
   LifeTime: 10
   MaxSpeed: 5
   MaxPower: 80
+  MaxSize: 4
   SpellRadius: 0.2
   StartSpeed: 10
   StartPower: 7
   IncrementPower: 0.2
   IncrementSpeed: 0.2
+  IncrementSize: 0.2

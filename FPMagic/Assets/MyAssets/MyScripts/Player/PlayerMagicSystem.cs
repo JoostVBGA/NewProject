@@ -18,8 +18,12 @@ public class PlayerMagicSystem : MonoBehaviour
     [SerializeField] private float currentMana;
     [SerializeField] private float manaRechargeRate = 7f;
     [SerializeField] private float timeToWaitForRecharge = 1f;
+    [SerializeField] private float IncrementPower;
+    [SerializeField] private float IncrementSize;
+    [SerializeField] private float IncrementSpeed;
     private float currentManaRechargeTimer;
-    private bool spellIsSet = false;
+    private bool spell1IsSet = false;
+    private bool spell2IsSet = false;
     private bool isCraftingMagic = false;
     private GameInputs controls;
 
@@ -27,6 +31,7 @@ public class PlayerMagicSystem : MonoBehaviour
     [SerializeField] public float CurrentPower;
     [SerializeField] public float CurrentSpeed;
     [SerializeField] public float CurrentSize = 1f;
+
 
     private void Awake()
     {
@@ -51,6 +56,7 @@ public class PlayerMagicSystem : MonoBehaviour
                 Debug.Log("CraftingMagic");
                 //SpellCraftUI/Animation
 
+
             }
             else
             {
@@ -59,14 +65,47 @@ public class PlayerMagicSystem : MonoBehaviour
             }
         }
 
+        //Spell1 Crafting
+
         if (controls.Player.Opt1.triggered && isCraftingMagic)
         {
             spellToCast = spell1;
             Debug.Log("Spell1");
             CurrentSpeed = spell1.SpellToCast.StartSpeed;
             CurrentPower = spell1.SpellToCast.StartPower;
-            spellIsSet = true;
-}
+            spell1IsSet = true;
+        }
+        if (controls.Player.LeftMousePress.triggered && spell1IsSet)
+        {
+            if (CurrentPower < spell1.SpellToCast.MaxPower)
+            {
+                CurrentPower = CurrentPower + spell1.SpellToCast.IncrementPower;
+            }
+            else
+            {
+                Debug.Log("PowerMaxedOut");
+            }
+
+            if (CurrentSize < spell1.SpellToCast.MaxSize)
+            {
+                CurrentSize = CurrentSize + spell1.SpellToCast.IncrementSize;
+            }
+            else
+            {
+                Debug.Log("SizeMaxedOut");
+            }
+
+            Debug.Log("size" + CurrentSize);
+            Debug.Log("Power" + CurrentPower);
+        }
+        if (controls.Player.RightMouse.triggered && spell1IsSet)
+        {
+            CurrentSpeed = CurrentSpeed + spell1.SpellToCast.IncrementSpeed;
+
+            Debug.Log("Speed" + CurrentSpeed);
+        }
+
+        //Spell2 Crafting
 
         if (controls.Player.Opt2.triggered && isCraftingMagic)
         {
@@ -74,7 +113,7 @@ public class PlayerMagicSystem : MonoBehaviour
             Debug.Log("Spell2");
             CurrentSpeed = spell2.SpellToCast.StartSpeed;
             CurrentPower = spell2.SpellToCast.StartPower;
-            spellIsSet = true;
+            spell2IsSet = true;        
         }
 
     }
@@ -95,7 +134,7 @@ public class PlayerMagicSystem : MonoBehaviour
     private void Cast()
     {
 
-        if (controls.Player.UseMagic.triggered && spellIsSet)
+        if (controls.Player.UseMagic.triggered)
         {
             bool hasEnoughMana = currentMana - spellToCast.SpellToCast.ManaCost >= 0f;
 

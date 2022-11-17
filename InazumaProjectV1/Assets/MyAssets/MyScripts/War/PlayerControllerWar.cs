@@ -44,7 +44,6 @@ public class PlayerControllerWar : MonoBehaviour
     private void Start()
     {
         playername = this.gameObject.name;
-        Debug.Log(this.gameObject.name);
 
         //spawn parent
 

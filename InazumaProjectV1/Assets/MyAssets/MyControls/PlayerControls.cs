@@ -68,6 +68,33 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftMousePress"",
+                    ""type"": ""Button"",
+                    ""id"": ""0316c496-8067-45f5-adb7-213c6f50012f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftMouseDrag"",
+                    ""type"": ""Button"",
+                    ""id"": ""a957682d-d5ec-4083-8c16-182617f7e89f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Loot"",
+                    ""type"": ""Button"",
+                    ""id"": ""a7c3cd3b-9dc7-4366-9d28-3a2bb8fe0941"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +139,50 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""CameraRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""625e3f36-d28b-4243-9659-6d315e4316c9"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftMousePress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea92f451-cd5e-490b-b662-7867682a0a28"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Hold(pressPoint=0.5)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftMouseDrag"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""98cff472-a9b1-403c-aba6-98cd223f9094"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Loot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""435666d5-f7dc-42c1-a52b-2fb639b8c0a1"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Loot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -231,6 +302,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_WarState_CameraDown = m_WarState.FindAction("CameraDown", throwIfNotFound: true);
         m_WarState_CameraLeft = m_WarState.FindAction("CameraLeft", throwIfNotFound: true);
         m_WarState_CameraRight = m_WarState.FindAction("CameraRight", throwIfNotFound: true);
+        m_WarState_LeftMousePress = m_WarState.FindAction("LeftMousePress", throwIfNotFound: true);
+        m_WarState_LeftMouseDrag = m_WarState.FindAction("LeftMouseDrag", throwIfNotFound: true);
+        m_WarState_Loot = m_WarState.FindAction("Loot", throwIfNotFound: true);
         // OverWorldState
         m_OverWorldState = asset.FindActionMap("OverWorldState", throwIfNotFound: true);
         m_OverWorldState_Movement = m_OverWorldState.FindAction("Movement", throwIfNotFound: true);
@@ -323,6 +397,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_WarState_CameraDown;
     private readonly InputAction m_WarState_CameraLeft;
     private readonly InputAction m_WarState_CameraRight;
+    private readonly InputAction m_WarState_LeftMousePress;
+    private readonly InputAction m_WarState_LeftMouseDrag;
+    private readonly InputAction m_WarState_Loot;
     public struct WarStateActions
     {
         private @PlayerControls m_Wrapper;
@@ -331,6 +408,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @CameraDown => m_Wrapper.m_WarState_CameraDown;
         public InputAction @CameraLeft => m_Wrapper.m_WarState_CameraLeft;
         public InputAction @CameraRight => m_Wrapper.m_WarState_CameraRight;
+        public InputAction @LeftMousePress => m_Wrapper.m_WarState_LeftMousePress;
+        public InputAction @LeftMouseDrag => m_Wrapper.m_WarState_LeftMouseDrag;
+        public InputAction @Loot => m_Wrapper.m_WarState_Loot;
         public InputActionMap Get() { return m_Wrapper.m_WarState; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -352,6 +432,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @CameraRight.started -= m_Wrapper.m_WarStateActionsCallbackInterface.OnCameraRight;
                 @CameraRight.performed -= m_Wrapper.m_WarStateActionsCallbackInterface.OnCameraRight;
                 @CameraRight.canceled -= m_Wrapper.m_WarStateActionsCallbackInterface.OnCameraRight;
+                @LeftMousePress.started -= m_Wrapper.m_WarStateActionsCallbackInterface.OnLeftMousePress;
+                @LeftMousePress.performed -= m_Wrapper.m_WarStateActionsCallbackInterface.OnLeftMousePress;
+                @LeftMousePress.canceled -= m_Wrapper.m_WarStateActionsCallbackInterface.OnLeftMousePress;
+                @LeftMouseDrag.started -= m_Wrapper.m_WarStateActionsCallbackInterface.OnLeftMouseDrag;
+                @LeftMouseDrag.performed -= m_Wrapper.m_WarStateActionsCallbackInterface.OnLeftMouseDrag;
+                @LeftMouseDrag.canceled -= m_Wrapper.m_WarStateActionsCallbackInterface.OnLeftMouseDrag;
+                @Loot.started -= m_Wrapper.m_WarStateActionsCallbackInterface.OnLoot;
+                @Loot.performed -= m_Wrapper.m_WarStateActionsCallbackInterface.OnLoot;
+                @Loot.canceled -= m_Wrapper.m_WarStateActionsCallbackInterface.OnLoot;
             }
             m_Wrapper.m_WarStateActionsCallbackInterface = instance;
             if (instance != null)
@@ -368,6 +457,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @CameraRight.started += instance.OnCameraRight;
                 @CameraRight.performed += instance.OnCameraRight;
                 @CameraRight.canceled += instance.OnCameraRight;
+                @LeftMousePress.started += instance.OnLeftMousePress;
+                @LeftMousePress.performed += instance.OnLeftMousePress;
+                @LeftMousePress.canceled += instance.OnLeftMousePress;
+                @LeftMouseDrag.started += instance.OnLeftMouseDrag;
+                @LeftMouseDrag.performed += instance.OnLeftMouseDrag;
+                @LeftMouseDrag.canceled += instance.OnLeftMouseDrag;
+                @Loot.started += instance.OnLoot;
+                @Loot.performed += instance.OnLoot;
+                @Loot.canceled += instance.OnLoot;
             }
         }
     }
@@ -422,6 +520,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnCameraDown(InputAction.CallbackContext context);
         void OnCameraLeft(InputAction.CallbackContext context);
         void OnCameraRight(InputAction.CallbackContext context);
+        void OnLeftMousePress(InputAction.CallbackContext context);
+        void OnLeftMouseDrag(InputAction.CallbackContext context);
+        void OnLoot(InputAction.CallbackContext context);
     }
     public interface IOverWorldStateActions
     {

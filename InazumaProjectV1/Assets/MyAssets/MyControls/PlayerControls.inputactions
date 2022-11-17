@@ -46,6 +46,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LeftMousePress",
+                    "type": "Button",
+                    "id": "0316c496-8067-45f5-adb7-213c6f50012f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LeftMouseDrag",
+                    "type": "Button",
+                    "id": "a957682d-d5ec-4083-8c16-182617f7e89f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Loot",
+                    "type": "Button",
+                    "id": "a7c3cd3b-9dc7-4366-9d28-3a2bb8fe0941",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -90,6 +117,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "CameraRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "625e3f36-d28b-4243-9659-6d315e4316c9",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftMousePress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea92f451-cd5e-490b-b662-7867682a0a28",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Hold(pressPoint=0.5)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftMouseDrag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "98cff472-a9b1-403c-aba6-98cd223f9094",
+                    "path": "<Keyboard>/e",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Loot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "435666d5-f7dc-42c1-a52b-2fb639b8c0a1",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Loot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

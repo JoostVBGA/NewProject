@@ -7,7 +7,7 @@ public class PlayerControllerWar : MonoBehaviour
 {
     [Header("Waypoints")]
 
-    [SerializeField] private WayPoints wayPointsScript;
+    private WayPoints wayPointsScript;
 
     [SerializeField] private float wayPointDistance = 0.2f;
 
@@ -21,9 +21,9 @@ public class PlayerControllerWar : MonoBehaviour
     [Header("NextWayPoint")]
     private Transform currentWayPoint;
 
-    public Transform wayPointParent;
+    [SerializeField] private GameObject wayPointParent;
 
-    public GameObject wayPoint;
+    [SerializeField] private GameObject wayPoint;
 
     private bool didCollide = false;
 
@@ -32,16 +32,13 @@ public class PlayerControllerWar : MonoBehaviour
 
     [SerializeField] private LayerMask Collide;
 
-    [SerializeField] private Camera mainCamera;
+    private Camera mainCamera;
 
-    [SerializeField] private string playername;
+    private string playername;
 
     private void Awake()
     {
-        wayPointsScript = GameObject.Find ("WayPoints").GetComponent<WayPoints>();
-        wayPointParent = GameObject.Find("WayPoints").transform;
         mainCamera = Camera.main;
-       
     }
 
     private void Start()
@@ -51,20 +48,25 @@ public class PlayerControllerWar : MonoBehaviour
 
         //spawn parent
 
-        //var waypointparent = 
+        var spawnparent = Instantiate (wayPointParent);
+        spawnparent.transform.position = new Vector3(0, 0, 0);
+        spawnparent.name = playername + "Parent";
+
+        wayPointsScript = GameObject.Find(playername + "Parent").GetComponent<WayPoints>();
+        wayPointParent = GameObject.Find(playername + "Parent");
     }
 
     //FirstWayPoint
     private void OnMouseDown()
     {
 
-        if (wayPointParent.childCount > 0)
+        if (wayPointParent.transform.childCount > 0)
         {
-            foreach (Transform child in wayPointParent)
+            foreach (Transform child in wayPointParent.transform)
             {
                 GameObject.Destroy(child.gameObject);
             }
-            var firstObject = Instantiate(wayPoint, transform.position, Quaternion.identity, wayPointParent);
+            var firstObject = Instantiate(wayPoint, transform.position, Quaternion.identity, wayPointParent.transform);
             firstObject.name = "wayPoint";
             lastWayPoint = firstObject.transform;
             didCollide = false;
@@ -74,7 +76,7 @@ public class PlayerControllerWar : MonoBehaviour
 
         else
         {
-            var firstObject = Instantiate(wayPoint, transform.position, Quaternion.identity, wayPointParent);
+            var firstObject = Instantiate(wayPoint, transform.position, Quaternion.identity, wayPointParent.transform);
             firstObject.name = "wayPoint";
             lastWayPoint = firstObject.transform;
             didCollide = false;
@@ -121,7 +123,7 @@ public class PlayerControllerWar : MonoBehaviour
                 return;
             }
 
-            var newObject = Instantiate(wayPoint, raycastHit.point, Quaternion.identity, wayPointParent);
+            var newObject = Instantiate(wayPoint, raycastHit.point, Quaternion.identity, wayPointParent.transform);
             newObject.name = "wayPoint (" + newObject.transform.GetSiblingIndex() + ")";
             lastWayPoint = newObject.transform;
         }
@@ -131,9 +133,9 @@ public class PlayerControllerWar : MonoBehaviour
     private void OnMouseUp()
     {
         
-        if (wayPointParent.childCount < 2)
+        if (wayPointParent.transform.childCount < 2)
         {
-            foreach (Transform child in wayPointParent)
+            foreach (Transform child in wayPointParent.transform)
             {
                 GameObject.Destroy(child.gameObject);
             }
@@ -143,7 +145,7 @@ public class PlayerControllerWar : MonoBehaviour
     //Walking
     void Update()
     {
-        if (wayPointParent.childCount < 2)
+        if (wayPointParent.transform.childCount < 2)
         {
             return;
         }

@@ -43,6 +43,10 @@ public class PlayerControllerWar : MonoBehaviour
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private int Target;
 
+    [Header("Exiting")]
+
+    [SerializeField] public bool inExit = false;
+
 
     private void Awake()
     {
@@ -197,9 +201,22 @@ public class PlayerControllerWar : MonoBehaviour
 
         Target = lineRenderer.positionCount - 1;
 
-        Debug.Log(lastWayPoint.position);
-
         lineRenderer.SetPosition(Target, lastWayPoint.position);
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Exit"))
+        {
+            inExit = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Exit"))
+        {
+            inExit = false;
+        }
     }
 }

@@ -50,9 +50,4 @@ public class Character_Spawner : MonoBehaviour
         spawn5.name = player5.name;
 
     }
-
-    void Update()
-    {
-        
-    }
 }

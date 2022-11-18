@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4788109244466611411}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wayPointDistance: 0.2
+  lastWayPoint: {fileID: 0}
   moveSpeed: 3
   distanceThreshold: 0.1
   wayPointParent: {fileID: 7775764112200856895, guid: 3919bee8b47ff954bb40e4ddadbb606e, type: 3}
@@ -90,6 +91,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   lineRenderer: {fileID: 0}
+  Target: 0
+  inExit: 0
 --- !u!1 &4788109244960248255
 GameObject:
   m_ObjectHideFlags: 0

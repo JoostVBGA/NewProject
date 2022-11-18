@@ -11,7 +11,7 @@ public class PlayerControllerWar : MonoBehaviour
 
     [SerializeField] private float wayPointDistance = 0.2f;
 
-    private Transform lastWayPoint;
+    [SerializeField]private Transform lastWayPoint;
 
     [Header("MovementParameters")]
     [SerializeField] private float moveSpeed = 5f;
@@ -25,6 +25,8 @@ public class PlayerControllerWar : MonoBehaviour
 
     [SerializeField] private GameObject wayPoint;
 
+    [SerializeField] private GameObject rendererObject;
+
     private bool didCollide = false;
 
     [Header("References")]
@@ -35,6 +37,12 @@ public class PlayerControllerWar : MonoBehaviour
     private Camera mainCamera;
 
     private string playername;
+
+    [Header("Renderer")]
+
+    [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private int Target;
+
 
     private void Awake()
     {
@@ -53,6 +61,14 @@ public class PlayerControllerWar : MonoBehaviour
 
         wayPointsScript = GameObject.Find(playername + "Parent").GetComponent<WayPoints>();
         wayPointParent = GameObject.Find(playername + "Parent");
+
+        var spawnrenderer = Instantiate(rendererObject);
+        spawnrenderer.transform.position = new Vector3(0, 0, 0);
+        spawnrenderer.name = playername + "renderer";
+
+        rendererObject = GameObject.Find(playername + "renderer");
+        lineRenderer = rendererObject.GetComponent<LineRenderer>();
+
     }
 
     //FirstWayPoint
@@ -64,6 +80,7 @@ public class PlayerControllerWar : MonoBehaviour
             foreach (Transform child in wayPointParent.transform)
             {
                 GameObject.Destroy(child.gameObject);
+                lineRenderer.positionCount = 0;
             }
             var firstObject = Instantiate(wayPoint, transform.position, Quaternion.identity, wayPointParent.transform);
             firstObject.name = "wayPoint";
@@ -125,6 +142,7 @@ public class PlayerControllerWar : MonoBehaviour
             var newObject = Instantiate(wayPoint, raycastHit.point, Quaternion.identity, wayPointParent.transform);
             newObject.name = "wayPoint (" + newObject.transform.GetSiblingIndex() + ")";
             lastWayPoint = newObject.transform;
+            AssignTarget();
         }
     }
 
@@ -144,10 +162,16 @@ public class PlayerControllerWar : MonoBehaviour
     //Walking
     void Update()
     {
+
+        if (wayPointParent.transform.childCount < 1 && lineRenderer.positionCount > 0)
+        {
+            lineRenderer.positionCount = 0;
+        }
         if (wayPointParent.transform.childCount < 2)
         {
             return;
         }
+
 
         //looks at next waypoint
         transform.LookAt(currentWayPoint);
@@ -157,12 +181,25 @@ public class PlayerControllerWar : MonoBehaviour
             return;
         }
 
+
         // follows to the nextwaypoint
         transform.position = Vector3.MoveTowards(transform.position, currentWayPoint.position, moveSpeed * Time.deltaTime);
         
         //if nextwaypoint is reached set next waypoint
         if (Vector3.Distance(transform.position, currentWayPoint.position) < distanceThreshold)
                 currentWayPoint = wayPointsScript.GetNextWaypoint(currentWayPoint);
+
+    }
+
+    public void AssignTarget()
+    {
+        lineRenderer.positionCount = lineRenderer.positionCount + 1;
+
+        Target = lineRenderer.positionCount - 1;
+
+        Debug.Log(lastWayPoint.position);
+
+        lineRenderer.SetPosition(Target, lastWayPoint.position);
 
     }
 }

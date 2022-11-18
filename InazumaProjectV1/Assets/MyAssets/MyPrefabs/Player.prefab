@@ -82,12 +82,14 @@ MonoBehaviour:
   distanceThreshold: 0.1
   wayPointParent: {fileID: 7775764112200856895, guid: 3919bee8b47ff954bb40e4ddadbb606e, type: 3}
   wayPoint: {fileID: 1697559049532697295, guid: 47200ee8ed9ec6045bbb273261715930, type: 3}
+  rendererObject: {fileID: 4112645718568227691, guid: 877e93873fc13d14baa7f54c6c6e796e, type: 3}
   Ground:
     serializedVersion: 2
     m_Bits: 64
   Collide:
     serializedVersion: 2
     m_Bits: 1
+  lineRenderer: {fileID: 0}
 --- !u!1 &4788109244960248255
 GameObject:
   m_ObjectHideFlags: 0

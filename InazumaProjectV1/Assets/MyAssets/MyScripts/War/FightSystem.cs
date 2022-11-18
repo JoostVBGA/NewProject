@@ -12,6 +12,7 @@ public class FightSystem : MonoBehaviour
     {
         EventSystem.current.OnCharacterTriggerEnter += BattleStateOn;
         EventSystem.current.OnBattleStateExit += BattleStateOff;
+        //PlayerScript = GameObject.Find("player").GetBehaviour<PlayerControllerWar>;
     }
 
     public void SpecialMove()

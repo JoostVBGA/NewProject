@@ -47,6 +47,13 @@ public class PlayerControllerWar : MonoBehaviour
 
     [SerializeField] public bool inExit = false;
 
+    [Header("Battling")]
+
+    [SerializeField] public Vector3 battleCollision;
+    [SerializeField] public bool inBattle = false;
+    [SerializeField] public ScriptableObject playerInfo;
+    [SerializeField] public bool isAware;
+
 
     private void Awake()
     {
@@ -210,6 +217,13 @@ public class PlayerControllerWar : MonoBehaviour
         if (other.gameObject.CompareTag("Exit"))
         {
             inExit = true;
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            inBattle = true;
+            battleCollision = gameObject.transform.position;
+            EventSystem.current.CharacterTriggerEnter();
         }
     }
     private void OnTriggerExit(Collider other)

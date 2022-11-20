@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class EnemyControllerWar : MonoBehaviour
 {
+    [SerializeField] public ScriptableObject enemyInfo;
+    [SerializeField] public bool isAware;
 
     private void OnTriggerEnter(Collider other)
     {
-        EventSystem.current.CharacterTriggerEnter();
+        if (other.gameObject.CompareTag("Player"))
+        {
+            return;
+        }
+
+        return;
     }
 
 }

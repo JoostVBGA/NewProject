@@ -46,6 +46,7 @@ public class PlayerControllerWar : MonoBehaviour
 
     [SerializeField] public bool inExit = false;
 
+<<<<<<< HEAD
     [Header("Battling")]
 
     [SerializeField] public Vector3 battleCollision;
@@ -63,6 +64,8 @@ public class PlayerControllerWar : MonoBehaviour
     [SerializeField] public int defense;
     [SerializeField] public int agility;
 
+=======
+>>>>>>> parent of 21ea885 (Finds all fighters in battle range)
 
     private void Awake()
     {
@@ -230,13 +233,6 @@ public class PlayerControllerWar : MonoBehaviour
         if (other.gameObject.CompareTag("Exit"))
         {
             inExit = true;
-        }
-
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            inBattle = true;
-            battleCollision = gameObject.transform.position;
-            EventSystem.current.CharacterTriggerEnter();
         }
     }
     private void OnTriggerExit(Collider other)

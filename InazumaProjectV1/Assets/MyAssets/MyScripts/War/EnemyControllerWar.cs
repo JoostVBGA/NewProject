@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyControllerWar : MonoBehaviour
 {
+<<<<<<< HEAD
     [SerializeField] public FighterBase enemyInfo;
     [SerializeField] public bool isAware = false;
     [SerializeField] public bool inBattle = false;
@@ -38,6 +39,12 @@ public class EnemyControllerWar : MonoBehaviour
         }
 
         return;
+=======
+
+    private void OnTriggerEnter(Collider other)
+    {
+        EventSystem.current.CharacterTriggerEnter();
+>>>>>>> parent of 21ea885 (Finds all fighters in battle range)
     }
 
 }

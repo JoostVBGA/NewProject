@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class FightSystem : MonoBehaviour
 {
+<<<<<<< HEAD
     private Vector3 posBattle;
 
     [SerializeField]private float battleRange;
 
     [SerializeField] private GameObject battleCollider;
+=======
+    public bool specialMove = false;
+
+    public Behaviour PlayerScript;
+>>>>>>> parent of 21ea885 (Finds all fighters in battle range)
 
     [SerializeField] private List<GameObject> players;
 
@@ -36,10 +42,20 @@ public class FightSystem : MonoBehaviour
     {
         EventSystem.current.OnCharacterTriggerEnter += BattleStateOn;
         EventSystem.current.OnBattleStateExit += BattleStateOff;
+<<<<<<< HEAD
+=======
+        //PlayerScript = GameObject.Find("player").GetBehaviour<PlayerControllerWar>;
+    }
+
+    public void SpecialMove()
+    {
+        EventSystem.current.BattleStateExit();
+>>>>>>> parent of 21ea885 (Finds all fighters in battle range)
     }
 
     private void BattleStateOn()
     {
+<<<<<<< HEAD
         //Disabling Scripts
 
         Debug.Log("InBattle");
@@ -86,6 +102,9 @@ public class FightSystem : MonoBehaviour
                 }
             }
         }
+=======
+        PlayerScript.enabled = false;
+>>>>>>> parent of 21ea885 (Finds all fighters in battle range)
     }
 
     public void Passive()
@@ -183,13 +202,6 @@ public class FightSystem : MonoBehaviour
     }
     private void BattleStateOff()
     {
-        Debug.Log("OutOfBattle");
-
-        GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Player");
-
-        foreach (GameObject obj in taggedObjects)
-        {
-            obj.GetComponent<PlayerControllerWar>().enabled = true;
-        }
+        PlayerScript.enabled = true;
     }
 }

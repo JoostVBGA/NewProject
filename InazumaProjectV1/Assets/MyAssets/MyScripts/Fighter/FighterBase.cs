@@ -9,6 +9,7 @@ public class FighterBase : ScriptableObject
     [SerializeField] string fighterName;
 
     [TextArea]
+
     [SerializeField] string fighterDescription;
 
     [SerializeField] GameObject fighterModel;
@@ -23,10 +24,7 @@ public class FighterBase : ScriptableObject
     [SerializeField] int speed;
     [SerializeField] int damage;
     [SerializeField] int defense;
-    [SerializeField] int attack;
-    [SerializeField] int stamina;
-    [SerializeField] int luck;
-    [SerializeField] int drive;
+    [SerializeField] int agility;
 
     public string Name
     {
@@ -78,24 +76,9 @@ public class FighterBase : ScriptableObject
         get { return defense; }
     }
 
-    public int Attack
+    public int Agility
     {
-        get { return attack; }
-    }
-
-    public int Stamina
-    {
-        get { return stamina; }
-    }
-
-    public int Luck
-    {
-        get { return luck; }
-    }
-
-    public int Drive
-    {
-        get { return drive; }
+        get { return agility; }
     }
 }
 

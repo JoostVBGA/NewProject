@@ -2,8 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarCanvasSystem : MonoBehaviour
+public class SC_CanvasController : MonoBehaviour
 {
+    [SerializeField]private GameObject battleCanvas;
+    [SerializeField]private GameObject warCanvas;
+
+    private void Awake()
+    {
+        battleCanvas = gameObject.transform.GetChild(1).gameObject;
+        warCanvas = gameObject.transform.GetChild(0).gameObject;
+    }
+
     private void Start()
     {
         EventSystem.current.OnCharacterTriggerEnter += BattleStateOn;
@@ -12,12 +21,14 @@ public class WarCanvasSystem : MonoBehaviour
 
     private void BattleStateOn()
     {
-        transform.GetChild(0).gameObject.SetActive(false);
+        battleCanvas.SetActive(true);
+        warCanvas.SetActive(false);
     }
 
     private void BattleStateOff()
     {
-        transform.GetChild(0).gameObject.SetActive(true);
+        battleCanvas.SetActive(false);
+        warCanvas.SetActive(true);
     }
 
     private void OnDestroy()
@@ -25,4 +36,5 @@ public class WarCanvasSystem : MonoBehaviour
         EventSystem.current.OnCharacterTriggerEnter -= BattleStateOn;
         EventSystem.current.OnBattleStateExit -= BattleStateOff;
     }
+
 }

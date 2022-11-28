@@ -9,19 +9,11 @@ public class Exit : MonoBehaviour
 
     [SerializeField]private float exitTime = 4;
 
-    
-
     private void OnTriggerEnter(Collider other)
     {
-        
-
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("1InExit");
-
             GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Player");
-
-
 
             foreach (GameObject obj in taggedObjects)
             {
@@ -58,7 +50,5 @@ public class Exit : MonoBehaviour
             exitTime = 4;
             Debug.Log("Exited");
         }
-
     }
-
 }

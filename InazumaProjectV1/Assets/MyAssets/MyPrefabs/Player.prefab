@@ -93,6 +93,10 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   Target: 0
   inExit: 0
+  battleCollision: {x: 0, y: 0, z: 0}
+  inBattle: 0
+  playerInfo: {fileID: 0}
+  isAware: 0
 --- !u!1 &4788109244960248255
 GameObject:
   m_ObjectHideFlags: 0

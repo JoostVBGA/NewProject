@@ -9,15 +9,15 @@ public class Character_Spawner : MonoBehaviour
     
     [SerializeField] private GameObject playerPrefab;
 
-    [SerializeField] public ScriptableObject player1;
+    [SerializeField] public FighterBase player1;
 
-    [SerializeField] public ScriptableObject player2;
+    [SerializeField] public FighterBase player2;
 
-    [SerializeField] public ScriptableObject player3;
+    [SerializeField] public FighterBase player3;
 
-    [SerializeField] public ScriptableObject player4;
+    [SerializeField] public FighterBase player4;
 
-    [SerializeField] public ScriptableObject player5;
+    [SerializeField] public FighterBase player5;
 
 
     [Header("Spawners")]

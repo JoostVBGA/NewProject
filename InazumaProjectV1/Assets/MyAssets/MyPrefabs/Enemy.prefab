@@ -47,13 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23187e1ecfec9f54fbe4e6382f70084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfo: {fileID: 0}
-  isAware: 0
-  chosenMove: 
-  moves:
-  - Dodge
-  - Aggressive
-  - Passive
 --- !u!65 &6769605979848218152
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -65,8 +58,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 2.619077, z: 1.5}
-  m_Center: {x: 0, y: 0.8095385, z: 0}
+  m_Size: {x: 5, y: 1, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6769605981341092582
 GameObject:
   m_ObjectHideFlags: 0

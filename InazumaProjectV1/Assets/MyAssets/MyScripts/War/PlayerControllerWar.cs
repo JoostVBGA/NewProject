@@ -6,11 +6,12 @@ using UnityEngine.EventSystems;
 public class PlayerControllerWar : MonoBehaviour
 {
     [Header("Waypoints")]
+
     private WayPoints wayPointsScript;
 
     [SerializeField] private float wayPointDistance = 0.2f;
 
-    private Transform lastWayPoint;
+    [SerializeField]private Transform lastWayPoint;
 
     [Header("MovementParameters")]
     [SerializeField] private float moveSpeed = 5f;
@@ -50,27 +51,13 @@ public class PlayerControllerWar : MonoBehaviour
 
     [SerializeField] public Vector3 battleCollision;
     [SerializeField] public bool inBattle = false;
-    [SerializeField] public bool isAware = false;
-    [SerializeField] public FighterBase playerInfo;
-    [SerializeField] public float level = 10;
-
-    [Header("PlayerInfo")]
-
-    [SerializeField] public int maxHP;
-    [SerializeField] public int maxMana;
-    [SerializeField] public int speed;
-    [SerializeField] public int damage;
-    [SerializeField] public int defense;
-    [SerializeField] public int agility;
+    [SerializeField] public ScriptableObject playerInfo;
+    [SerializeField] public bool isAware;
 
 
     private void Awake()
     {
         mainCamera = Camera.main;
-        //speed = playerInfo.Speed;
-       // damage = playerInfo.Damage;
-        // defense = playerInfo.Defense;
-        //agility = playerInfo.Agility;
     }
 
     private void Start()

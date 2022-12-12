@@ -12,16 +12,24 @@ public class FightSystem : MonoBehaviour
 
     [SerializeField] private GameObject battleCollider;
 
+    [SerializeField] private List<GameObject> players;
+
+    [SerializeField] private List<GameObject> enemys;
+
+    [SerializeField] private float useDodge = 0f;
+
+    [SerializeField] private float enemyMove = 0;
+
+    [SerializeField] private float enemyPower = 1f;
+
+    [SerializeField] private float playerPower = 1f;
+
+    [SerializeField] private GameObject directEnemy;
+
     private void Start()
     {
         EventSystem.current.OnCharacterTriggerEnter += BattleStateOn;
         EventSystem.current.OnBattleStateExit += BattleStateOff;
-        
-    }
-
-    public void SpecialMove()
-    {
-        EventSystem.current.BattleStateExit();
     }
 
     private void BattleStateOn()
@@ -43,6 +51,17 @@ public class FightSystem : MonoBehaviour
             obj.GetComponent<EnemyControllerWar>().enabled = false;
         }
 
+        foreach (GameObject obj in enemys)
+        {
+            if (obj.GetComponent<EnemyControllerWar>().randomMove == 0)
+            {
+                return;
+            }
+
+           obj.GetComponent<EnemyControllerWar>().randomMove = enemyMove;
+        }
+            
+
         //Finding Battlers
         foreach (GameObject obj in taggedPlayers)
         {
@@ -55,19 +74,190 @@ public class FightSystem : MonoBehaviour
                 {
                     if(hitCollider.gameObject.CompareTag("Player"))
                     {
-                        Debug.Log("Player" + hitCollider.name);
+                        players.Add(hitCollider.gameObject);
+
                     }
 
                     if (hitCollider.gameObject.CompareTag("Enemy"))
                     {
-                        Debug.Log("Enemy" + hitCollider.name);
+                        enemys.Add(hitCollider.gameObject);
                     }
-                    
                 }
+            }
+        }
+
+        foreach (var enemy in enemys)
+        {
+
+            if (enemys.Count -1 == enemys.IndexOf(enemy))
+            {
+                directEnemy = enemy;
+                enemyMove = enemy.GetComponent<EnemyControllerWar>().randomMove;
+            }
+        }
+
+    }
+
+    
+    public void Defensive()
+    {
+        //Dodge
+        if (enemyMove == 1)
+        {
+            foreach (var obj in enemys)
+            {
+                //calculate enemy power
+            }
+
+            useDodge = 2;
+            enemyPower = enemyPower * 1.2f;
+        }
+
+        //Agressive
+        if (enemyMove == 2)
+        {
+            foreach (var obj in enemys)
+            {
+                //calculate enemy power
+            }
+            playerPower = playerPower * 1.2f;
+        }
+
+        //Defensive
+        if (enemyMove == 3)
+        {
+            foreach (var obj in enemys)
+            {
+                //calculate enemy power
+            }
+            playerPower = playerPower * 1.02f;
+        }
+        Calculate();
+    }
+    public void Agressive()
+    {
+        {
+            //Dodge
+            if (enemyMove == 1)
+            {
+                foreach (var obj in enemys)
+                {
+                    //calculate enemy power
+                }
+
+                useDodge = 2;
+                playerPower = playerPower * 1.2f;
+            }
+
+            //Agressive
+            if (enemyMove == 2)
+            {
+                foreach (var obj in enemys)
+                {
+                    //calculate enemy power
+                }
+                playerPower = playerPower * 1.02f;
+            }
+
+            //Defensive
+            if (enemyMove == 3)
+            {
+                foreach (var obj in enemys)
+                {
+                    //calculate enemy power
+                }
+                enemyPower = enemyPower * 1.2f;
+            }
+            Calculate();
+        }
+    }
+
+    public void Dodge()
+    {
+        {
+            //Dodge
+            if (enemyMove == 1)
+            {
+                foreach (var obj in enemys)
+                {
+                    //calculate enemy power
+                }
+
+                useDodge = 3;
+                playerPower = playerPower * 1.02f;
+            }
+
+            //Agressive
+            if (enemyMove == 2)
+            {
+                foreach (var obj in enemys)
+                {
+                    //calculate enemy power
+                }
+                enemyPower = enemyPower * 1.2f;
+                useDodge = 1;
+            }
+
+            //Defensive
+            if (enemyMove == 3)
+            {
+                foreach (var obj in enemys)
+                {
+                    //calculate enemy power
+                }
+                playerPower = playerPower * 1.2f;
+                useDodge = 1;
+            }
+            Calculate();
+        }
+    }
+
+    private void Calculate()
+    {
+        //playerBonus
+        foreach (var obj in players)
+        {
+            //calculate player stat bonus
+        }
+
+        if (enemys.Count > 1)
+        {
+            enemyPower = enemyPower + (enemys.Count * 0.35f);
+        }
+
+        if (players.Count > 1)
+        {
+            playerPower = playerPower + (players.Count * 0.35f);
+        }
+
+        Debug.Log("PlayerPower" + playerPower);
+        Debug.Log("EnemyPower" + enemyPower);
+
+        if (enemyPower > playerPower)
+        {
+            if (useDodge == 2 || useDodge == 3)
+            {
+                Debug.Log("EnemyWins");
+                //assign invincibility
+            }
+        }
+
+        if (playerPower > enemyPower)
+        {
+            //playerWins
+            if (useDodge == 1 || useDodge == 3)
+            {
+                Debug.Log("PlayerWins");
+                //assign invincibility
             }
         }
     }
 
+    public void SpecialMove()
+    {
+        return;
+        //EventSystem.current.BattleStateExit();
+    }
     private void BattleStateOff()
     {
         Debug.Log("OutOfBattle");

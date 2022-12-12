@@ -8,6 +8,7 @@ public class BattleCanvasSystem : MonoBehaviour
     {
         EventSystem.current.OnCharacterTriggerEnter += BattleStateOn;
         EventSystem.current.OnBattleStateExit += BattleStateOff;
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     private void BattleStateOn()

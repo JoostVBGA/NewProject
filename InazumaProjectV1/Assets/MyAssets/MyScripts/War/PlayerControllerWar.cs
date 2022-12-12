@@ -54,7 +54,6 @@ public class PlayerControllerWar : MonoBehaviour
     [SerializeField] public ScriptableObject playerInfo;
     [SerializeField] public bool isAware;
 
-
     private void Awake()
     {
         mainCamera = Camera.main;

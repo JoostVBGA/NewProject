@@ -17,11 +17,7 @@ public class Exit : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("1InExit");
-
             GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Player");
-
-
 
             foreach (GameObject obj in taggedObjects)
             {

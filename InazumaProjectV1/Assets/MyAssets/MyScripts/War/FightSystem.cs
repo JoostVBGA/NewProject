@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class FightSystem : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class FightSystem : MonoBehaviour
 
     [SerializeField] private float useDodge = 0f;
 
-    [SerializeField] private float enemyMove = 0;
+    [SerializeField] private float enemyMove = 0f;
 
     [SerializeField] private float enemyPower = 1f;
 
@@ -98,7 +99,6 @@ public class FightSystem : MonoBehaviour
 
     }
 
-    
     public void Defensive()
     {
         //Dodge
@@ -134,6 +134,7 @@ public class FightSystem : MonoBehaviour
         }
         Calculate();
     }
+
     public void Agressive()
     {
         {
@@ -230,27 +231,55 @@ public class FightSystem : MonoBehaviour
             playerPower = playerPower + (players.Count * 0.35f);
         }
 
-        Debug.Log("PlayerPower" + playerPower);
-        Debug.Log("EnemyPower" + enemyPower);
+        GameObject[] taggedPlayers = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] taggedEnemys = GameObject.FindGameObjectsWithTag("Enemy");
 
+        foreach (GameObject obj in taggedPlayers)
+        {
+            obj.GetComponent<PlayerControllerWar>().enabled = true;
+        }
+
+        foreach (GameObject obj in taggedEnemys)
+        {
+            obj.GetComponent<EnemyControllerWar>().enabled = true;
+        }
+        //enemyWins
         if (enemyPower > playerPower)
         {
+            Debug.Log("EnemyWins");
+            //setknockout
+            foreach (var obj in players)
+            {
+                obj.GetComponent<CS_KnockoutComponent>().enabled = true;
+            }
+
             if (useDodge == 2 || useDodge == 3)
             {
-                Debug.Log("EnemyWins");
                 //assign invincibility
             }
         }
 
+        //playerWins
         if (playerPower > enemyPower)
         {
-            //playerWins
+            Debug.Log("PlayerWins");
+            //setknockout
+            foreach (var obj in enemys)
+            {
+                obj.GetComponent<CS_KnockoutComponent>().enabled = true;
+            }
+
             if (useDodge == 1 || useDodge == 3)
             {
-                Debug.Log("PlayerWins");
                 //assign invincibility
             }
         }
+
+        //reset
+        EventSystem.current.BattleStateExit();
+        enemyPower = 1;
+        playerPower = 1;
+        useDodge =  0;
     }
 
     public void SpecialMove()
@@ -258,15 +287,11 @@ public class FightSystem : MonoBehaviour
         return;
         //EventSystem.current.BattleStateExit();
     }
+
     private void BattleStateOff()
     {
         Debug.Log("OutOfBattle");
 
-        GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Player");
 
-        foreach (GameObject obj in taggedObjects)
-        {
-            obj.GetComponent<PlayerControllerWar>().enabled = true;
-        }
     }
 }

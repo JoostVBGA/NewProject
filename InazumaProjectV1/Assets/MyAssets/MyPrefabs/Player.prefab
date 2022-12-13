@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4788109244466611410}
-  - component: {fileID: 4788109244466611409}
+  - component: {fileID: 5786369487261743812}
   - component: {fileID: 4788109244466611408}
   - component: {fileID: 4788109244466611411}
+  - component: {fileID: 6510824912587091233}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -36,8 +37,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4788109244466611409
-BoxCollider:
+--- !u!136 &5786369487261743812
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -46,8 +47,9 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2, z: 1.5}
+  m_Radius: 1
+  m_Height: 2.32
+  m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &4788109244466611408
 Rigidbody:
@@ -93,6 +95,23 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   Target: 0
   inExit: 0
+  battleCollision: {x: 0, y: 0, z: 0}
+  inBattle: 0
+  playerInfo: {fileID: 0}
+  isAware: 0
+--- !u!114 &6510824912587091233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4788109244466611413}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7562038c2f375e94ea7ce16c4a112ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KnockoutTime: 1
 --- !u!1 &4788109244960248255
 GameObject:
   m_ObjectHideFlags: 0

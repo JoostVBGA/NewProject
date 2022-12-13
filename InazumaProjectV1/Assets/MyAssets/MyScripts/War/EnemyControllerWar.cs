@@ -17,4 +17,9 @@ public class EnemyControllerWar : MonoBehaviour
         return;
     }
 
+    private void Update()
+    {
+
+    }
+
 }

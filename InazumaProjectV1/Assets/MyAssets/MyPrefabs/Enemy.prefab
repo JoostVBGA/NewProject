@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6769605979848218153}
+  - component: {fileID: -5974029069380162049}
   - component: {fileID: 6769605979848218159}
-  - component: {fileID: 6769605979848218152}
+  - component: {fileID: -1077927683490251379}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -35,6 +36,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &-5974029069380162049
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769605979848218154}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 2.3199997
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &6769605979848218159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,19 +62,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23187e1ecfec9f54fbe4e6382f70084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &6769605979848218152
-BoxCollider:
+  enemyInfo: {fileID: 0}
+  isAware: 0
+  randomMove: 0
+--- !u!114 &-1077927683490251379
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6769605979848218154}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 1, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7562038c2f375e94ea7ce16c4a112ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KnockoutTime: 1
 --- !u!1 &6769605981341092582
 GameObject:
   m_ObjectHideFlags: 0
